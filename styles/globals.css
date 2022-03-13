@@ -1,16 +1,21 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap");
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "PT Sans";
+}
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+@font-face {
+  font-family: "castellar";
+  src: local("castellar"), url(/assets/fonts/CASTELAR.ttf) format("truetype");
+}
+
+a {
+  text-decoration: none !important;
 }

@@ -1,0 +1,140 @@
+.post_order_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post_order_card {
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 1fr 1fr 0.31fr;
+  grid-template-areas: "image" "text" "stats";
+  width: 400px;
+  height: 700px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  font-family: roboto;
+  text-align: center;
+}
+
+.post_order_card_image {
+  grid-area: image;
+}
+.post_order_card_text {
+  grid-area: text;
+}
+.post_order_card_stats {
+  grid-area: stats;
+}
+.post_order_card_image {
+  grid-area: image;
+  background: url("/assets/images/orderconfirmation.png");
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-size: cover;
+  background-position: center center;
+  width: 400px;
+}
+.post_order_card_text {
+  grid-area: text;
+  margin: 25px;
+  width: 370px;
+}
+.post_order_card_text .date {
+  color: rgb(255, 7, 110);
+  font-size: 13px;
+}
+.post_order_card_text p {
+  color: grey;
+  font-size: 15px;
+  font-weight: 300;
+}
+.post_order_card_text h2 {
+  margin-top: 0px;
+  font-size: 28px;
+}
+.post_order_card_stats {
+  grid-area: stats;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  width: 400px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: .40e0d0;
+}
+
+.post_order_card_stats .stat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  color: white;
+  padding: 10px;
+}
+.post_order_card:hover {
+  transform: scale(1.15);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+.post_order_card {
+  transition: 0.5s ease;
+  cursor: pointer;
+  margin: 30px;
+}
+.post_order_wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.step3 {
+  background: url("/assets/images/orderTrack.png");
+  background-size: cover;
+  background-position: center center;
+}
+.step2 {
+  background: url("/assets/images/emailBoostify.jpeg");
+  background-size: cover;
+  background-position: center center;
+}
+.step4 {
+  background: url("/assets/images/boosterLobby.jpeg");
+  background-size: cover;
+  background-position: center center;
+}
+@media screen and (max-width: 460px) {
+  .post_order_card,
+  .post_order_card_stats,
+  .post_order_card_image,
+  .post_order_card_text {
+    width: 300px;
+    margin: 1px;
+    margin-top: 20px;
+  }
+  .post_order_card {
+    margin-bottom: 25px;
+  }
+}
+
+@media screen and (min-width: 915px) {
+  .post_order_wrap {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (min-width: 1800px) {
+  .post_order_wrap {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+.strong_desc {
+  color: black;
+}
+.whoAreWe_title {
+  font-size: 63.96px;
+  border-bottom: 5px solid turquoise;
+  border-radius: 7px;
+  color: black;
+  opacity: 1;
+  text-align: center;
+  padding: 2rem;
+}

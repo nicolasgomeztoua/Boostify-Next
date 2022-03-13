@@ -18,7 +18,7 @@ import gold from "../../public/assets/images/Ranked_Tier3_Gold.png";
 import silver from "../../public/assets/images/Ranked_Tier2_Silver.png";
 import bronze from "../../public/assets/images/Ranked_Tier1_Bronze.jpeg";
 import Image from "next/image";
-import { useDispatchCart } from "../../hooks/Cart/CartHandler";
+import { useCart, useDispatchCart } from "../../hooks/Cart/CartHandler";
 import { useRouter } from "next/router";
 import { debounce } from "lodash";
 
@@ -111,17 +111,23 @@ const Step2Container = styled.div`
 const StepOneSLidersWrap = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  #tier {
+    font-size: 32.2px;
+  }
   @media (max-width: 810px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     height: 1600px;
   }
 `;
-const PlacementWrap = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: max-content;
+const Subtitle = styled.h2`
+  font-size: 45.23px;
+  color: #000;
+  text-align: center;
+  border-bottom: 4px solid #f25a59;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 1rem;
 `;
 const F2 = styled(Filter2)`
   height: 75px;
@@ -359,6 +365,15 @@ const IconDescWrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
+  .ExtraDesc {
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: italic;
+    text-align: center;
+    height: 40px;
+    width: 80px;
+    margin-top: 10px;
+  }
 `;
 const IconOffline = styled(EyeSlash)`
   height: 55px;
@@ -528,6 +543,23 @@ const Button = styled.button`
     border-radius: 50px;
     border-color: #494949;
     transition: all 0.3s ease 0s;
+  }
+`;
+const DiscountButton = styled.button`
+  color: #494949;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 5px;
+  width: 150px;
+  border: 4px solid #494949;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+  &:hover {
+    color: #ffffff;
+    background: #e43403;
+    border-color: #e43403;
+    transition: all 0.4s ease 0s;
   }
 `;
 
@@ -1045,7 +1077,7 @@ const RankBoostProduct = () => {
             </StepOneTitle>
             <StepOneSLidersWrap>
               <InitialRank>
-                <h2 id="current-rank">Set your current RP</h2>
+                <Subtitle id="current-rank">Set your current RP</Subtitle>
                 <Image
                   src={firstRankImage}
                   alt="rank"
@@ -1053,7 +1085,15 @@ const RankBoostProduct = () => {
                   height={322}
                 />
 
-                <p id="tier">{firstTier}</p>
+                <p
+                  id="tier"
+                  style={{
+                    margin: "30px 0px",
+                    fontSize: "31.23.px !important",
+                  }}
+                >
+                  {firstTier}
+                </p>
                 <Slider
                   value={firstValue}
                   onChange={(e) => setFirstValue(e.target.value)}
@@ -1076,7 +1116,7 @@ const RankBoostProduct = () => {
                 <p style={{ textAlign: "center", fontSize: "45.23px" }}>RP</p>
               </InitialRank>
               <DesiredRankBoost>
-                <h2 id="current-rank">Set your desired RP</h2>
+                <Subtitle id="current-rank">Set your desired RP</Subtitle>
 
                 <Image
                   src={secondRankImage}
@@ -1085,7 +1125,12 @@ const RankBoostProduct = () => {
                   height={322}
                 />
 
-                <p id="tier">{secondTier}</p>
+                <p
+                  id="tier"
+                  style={{ margin: "30px 0px", fontSize: "31.23.px" }}
+                >
+                  {secondTier}
+                </p>
                 <Slider
                   value={secondValue}
                   onChange={(e) => setSecondValue(e.target.value)}
@@ -1191,14 +1236,14 @@ const RankBoostProduct = () => {
                 }}
               ></InputTyped>
               <div className="button_cont" align="center">
-                <button
+                <DiscountButton
                   className="example_c"
                   disabled={true}
                   style={{ opacity: 0.4 }}
                 >
                   {" "}
                   Apply
-                </button>
+                </DiscountButton>
               </div>
               <DiscountContainer>Total</DiscountContainer>
               <TotalMoney>

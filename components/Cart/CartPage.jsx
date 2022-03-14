@@ -52,7 +52,6 @@ const StepTwoWarning = styled.span`
   }
 `;
 
-
 const Cart = () => {
   const [titles, setTitles] = useState([""]);
   const [prices, setPrices] = useState([0]);
@@ -336,7 +335,12 @@ const Cart = () => {
         </Head>
         <div className={styles.failed_cart_contaier}>
           <h1 id="empty">Your cart is empty </h1>
-          <Link href={id ? "/?" + id : "/"} passHref>
+          <Link
+            href={`/${
+              typeof window !== "undefined" ? window?.location.search : null
+            }`}
+            passHref
+          >
             <button className={styles.example_d}> Go Back Home?</button>
           </Link>
         </div>
@@ -347,107 +351,45 @@ const Cart = () => {
   return (
     <>
       <Script src="https://www.paypal.com/sdk/js?client-id=Ab-OAlTFVTL8hU1GN30jAoe1XL4K5g9iqA-UxWwbnq6GTne9XBwjmGBJCWjiTb3-d9jahO9Anc1NeSm3&disable-funding=credit,card"></Script>
-      
-    
-        <div className={styles.container_cart}>
-          <div className={styles.window}>
-            <div className={styles.order_info}>
-              <div className={styles.order_info_content}>
-                <h2 className={styles.order_summary}>Order Summary</h2>
-                <div className={styles.line}></div>{" "}
-                {items?.map((element, index) => {
-                  if (element.kills) {
-                    return (
-                      <table
-                        className={styles.order_table}
-                        key={element.title + index}
-                      >
-                        <tbody>
-                          <tr>
-                            <td className={styles.full_width}>
-                              <Image
-                                src={element.icon}
-                               
-                                alt="product"
-                                width={50}
-                                height={50}
-                              ></Image>
-                            </td>
-                            <td>
-                              <br />{" "}
-                              <span className={styles.thin}>{element.title}</span>
-                              <br />{" "}
-                              <span className={styles.thin}>
-                                {element.selectedLegend}
-                              </span>
-                              <br />
-                              <span className={`${styles.thin} ${styles.small}`}>
-                                Kills: {element.kills}
-                                <br />
-                                <span className={`${styles.thin} ${styles.small}`}>
-                                  {element.filteredExtras}
-                                  <br />
-                                </span>
-                                <br />
-                                <CircleWithCross
-                                  style={{
-                                    height: "20px",
-                                    color: "#e43043",
-                                    zIndex: "10",
-                                  }}
-                                  onClick={() => handleRemove(index)}
-                                ></CircleWithCross>
-                              </span>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className={styles.price}>${element.price}</div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    );
-                  }
+
+      <div className={styles.container_cart}>
+        <div className={styles.window}>
+          <div className={styles.order_info}>
+            <div className={styles.order_info_content}>
+              <h2 className={styles.order_summary}>Order Summary</h2>
+              <div className={styles.line}></div>{" "}
+              {items?.map((element, index) => {
+                if (element.kills) {
                   return (
-                    <table className={styles.order_table} key={element.title + index}>
+                    <table
+                      className={styles.order_table}
+                      key={element.title + index}
+                    >
                       <tbody>
                         <tr>
                           <td className={styles.full_width}>
                             <Image
                               src={element.icon}
-                              
                               alt="product"
-                              width={200}
-                              height={200}
+                              width={50}
+                              height={50}
                             ></Image>
                           </td>
                           <td>
-                            <br /> <span className={styles.thin}>{element.title}</span>
-                            <br />
-                            {element.selectedLegend ||
-                              `From: ${element.firstValue}`}
+                            <br />{" "}
+                            <span className={styles.thin}>{element.title}</span>
+                            <br />{" "}
+                            <span className={styles.thin}>
+                              {element.selectedLegend}
+                            </span>
                             <br />
                             <span className={`${styles.thin} ${styles.small}`}>
-                              {element.selectedPopBadges ||
-                                `To: ${element.secondValue}`}
+                              Kills: {element.kills}
                               <br />
-                              <span className={`${styles.thin} ${styles.small}`}>
-                                {element.selectedExtraBadges}
-                                <br />
-                              </span>
-                              {element.placementMatches ? (
-                                <span className={`${styles.thin} ${styles.small}`}>
-                                  {"Placement Matches: " +
-                                    element.placementMatches}
-                                  <br />
-                                </span>
-                              ) : (
-                                <br />
-                              )}
-                              <span className={`${styles.thin} ${styles.small}`}>
-                                {element.filteredExtras ||
-                                  `${element.badgesExtras}`}
+                              <span
+                                className={`${styles.thin} ${styles.small}`}
+                              >
+                                {element.filteredExtras}
                                 <br />
                               </span>
                               <br />
@@ -470,147 +412,213 @@ const Cart = () => {
                       </tbody>
                     </table>
                   );
-                })}
-                <div className={styles.line}></div>
-                <div className={styles.total}>
-                  <span style={{ float: "left" }}>TOTAL</span>
-                  <span style={{ float: "right", textAlign: "right" }}>
-                    ${totalPrice?.toFixed(2)}
-                  </span>
-                </div>
+                }
+                return (
+                  <table
+                    className={styles.order_table}
+                    key={element.title + index}
+                  >
+                    <tbody>
+                      <tr>
+                        <td className={styles.full_width}>
+                          <Image
+                            src={element.icon}
+                            alt="product"
+                            width={200}
+                            height={200}
+                          ></Image>
+                        </td>
+                        <td>
+                          <br />{" "}
+                          <span className={styles.thin}>{element.title}</span>
+                          <br />
+                          {element.selectedLegend ||
+                            `From: ${element.firstValue}`}
+                          <br />
+                          <span className={`${styles.thin} ${styles.small}`}>
+                            {element.selectedPopBadges ||
+                              `To: ${element.secondValue}`}
+                            <br />
+                            <span className={`${styles.thin} ${styles.small}`}>
+                              {element.selectedExtraBadges}
+                              <br />
+                            </span>
+                            {element.placementMatches ? (
+                              <span
+                                className={`${styles.thin} ${styles.small}`}
+                              >
+                                {"Placement Matches: " +
+                                  element.placementMatches}
+                                <br />
+                              </span>
+                            ) : (
+                              <br />
+                            )}
+                            <span className={`${styles.thin} ${styles.small}`}>
+                              {element.filteredExtras ||
+                                `${element.badgesExtras}`}
+                              <br />
+                            </span>
+                            <br />
+                            <CircleWithCross
+                              style={{
+                                height: "20px",
+                                color: "#e43043",
+                                zIndex: "10",
+                              }}
+                              onClick={() => handleRemove(index)}
+                            ></CircleWithCross>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div className={styles.price}>${element.price}</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                );
+              })}
+              <div className={styles.line}></div>
+              <div className={styles.total}>
+                <span style={{ float: "left" }}>TOTAL</span>
+                <span style={{ float: "right", textAlign: "right" }}>
+                  ${totalPrice?.toFixed(2)}
+                </span>
               </div>
             </div>
-            <div className={styles.credit_info}>
-              <div className={styles.credit_info_content}>
-                {" "}
-                <h2 id="order_summary">Select Your Platform</h2>
-                <div className={styles.platform_select} style={{}}>
-                  <div>
-                    <Playstation
-                      style={{
-                        height: "50px",
-                        color: psColor,
-                      }}
-                      onClick={playClick}
-                    ></Playstation>
-                  </div>
-                  <div>
-                    <Desktop
-                      style={{
-                        height: "50px",
-                        color: pcColor,
-                      }}
-                      onClick={PcClick}
-                    ></Desktop>
-                  </div>
-                  <div>
-                    <Xbox
-                      style={{
-                        height: "50px",
-                        color: xboxColor,
-                      }}
-                      onClick={xClick}
-                    ></Xbox>
-                  </div>
-                </div>
-                <h2 id="order_summary">{platform} Email</h2>
-                <input
-                  type="email"
-                  className={styles.input_field}
-                  onChange={(e) => setPSN(e.target.value)}
-                ></input>
-                <h2 id="order_summary">{platform} Password</h2>
-                <input
-                  type="password"
-                  className={styles.input_field}
-                  onChange={(e) => setPSNPass(e.target.value)}
-                ></input>
-                <h2 id="order_summary">Select Your Region</h2>
-                <Select
-                  options={optionsRegion}
-                  styles={customStyles}
-                  onChange={(value) => setRegion(value.label)}
-                />
-                <StepTwoWarningContainer
-                  style={{
-                    display: invalid,
-
-                    marginTop: "10px",
-                  }}
-                >
-                  Fill out all fields
-                  <StepTwoWarning>
-                    <i
-                      className="fa fa_times"
-                      onClick={() => setInvalid("none")}
-                      style={{ padding: "20px" }}
-                    ></i>
-                  </StepTwoWarning>
-                </StepTwoWarningContainer>
-                <StepTwoWarningContainer
-                  id="secondWarning"
-                  style={{
-                    marginTop: "10px",
-                    marginBottom: "10px",
-                    padding: "5px",
-                  }}
-                >
-                  If 2_step_auth is enabled on your PSN account make sure to
-                  disable it to prevent access problems
-                </StepTwoWarningContainer>
-                <div className={styles.checkout_buttons_icons}>
-                  <button
-                    type="button"
-                    id="checkout_button"
-                    role="link"
-                    onClick={handleClick}
-                    className={styles.pay_btn}
-                    disabled={disabled}
-                  >
-                    Checkout with Card
-                  </button>
-                  <div
+          </div>
+          <div className={styles.credit_info}>
+            <div className={styles.credit_info_content}>
+              {" "}
+              <h2 id="order_summary">Select Your Platform</h2>
+              <div className={styles.platform_select} style={{}}>
+                <div>
+                  <Playstation
                     style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      paddingTop: "10px",
+                      height: "50px",
+                      color: psColor,
                     }}
-                  >
-                    {checkout ? (
-                      <PaypalCheckout
-                        titles={titles[0]}
-                        totalPrice={totalPrice}
-                        potentialOrder={potentialOrder}
-                      ></PaypalCheckout>
-                    ) : (
-                      <button
-                        disabled={disabled}
-                        onClick={() => setCheckout(true)}
-                        className={styles.pay_btn}
-                        style={{ backgroundColor: "#00457C" }}
-                      >
-                        Checkout with Paypal
-                      </button>
-                    )}
-                  </div>
-                  <div
-                    style={{ display: "flex", justifyContent: "space-between" }}
-                  >
-                    <Stripe style={{ height: "50px" }}></Stripe>
-                    <ApplePay style={{ height: "50px" }}></ApplePay>
-                    <GooglePay style={{ height: "50px" }}></GooglePay>
-                    <CreditCardAlt
-                      style={{ height: "50px" }}
-                      onClick={potentialOrder}
-                    ></CreditCardAlt>
-                  </div>
+                    onClick={playClick}
+                  ></Playstation>
                 </div>
-              </div>{" "}
-            </div>
+                <div>
+                  <Desktop
+                    style={{
+                      height: "50px",
+                      color: pcColor,
+                    }}
+                    onClick={PcClick}
+                  ></Desktop>
+                </div>
+                <div>
+                  <Xbox
+                    style={{
+                      height: "50px",
+                      color: xboxColor,
+                    }}
+                    onClick={xClick}
+                  ></Xbox>
+                </div>
+              </div>
+              <h2 id="order_summary">{platform} Email</h2>
+              <input
+                type="email"
+                className={styles.input_field}
+                onChange={(e) => setPSN(e.target.value)}
+              ></input>
+              <h2 id="order_summary">{platform} Password</h2>
+              <input
+                type="password"
+                className={styles.input_field}
+                onChange={(e) => setPSNPass(e.target.value)}
+              ></input>
+              <h2 id="order_summary">Select Your Region</h2>
+              <Select
+                options={optionsRegion}
+                styles={customStyles}
+                onChange={(value) => setRegion(value.label)}
+              />
+              <StepTwoWarningContainer
+                style={{
+                  display: invalid,
+
+                  marginTop: "10px",
+                }}
+              >
+                Fill out all fields
+                <StepTwoWarning>
+                  <i
+                    className="fa fa_times"
+                    onClick={() => setInvalid("none")}
+                    style={{ padding: "20px" }}
+                  ></i>
+                </StepTwoWarning>
+              </StepTwoWarningContainer>
+              <StepTwoWarningContainer
+                id="secondWarning"
+                style={{
+                  marginTop: "10px",
+                  marginBottom: "10px",
+                  padding: "5px",
+                }}
+              >
+                If 2_step_auth is enabled on your PSN account make sure to
+                disable it to prevent access problems
+              </StepTwoWarningContainer>
+              <div className={styles.checkout_buttons_icons}>
+                <button
+                  type="button"
+                  id="checkout_button"
+                  role="link"
+                  onClick={handleClick}
+                  className={styles.pay_btn}
+                  disabled={disabled}
+                >
+                  Checkout with Card
+                </button>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    paddingTop: "10px",
+                  }}
+                >
+                  {checkout ? (
+                    <PaypalCheckout
+                      titles={titles[0]}
+                      totalPrice={totalPrice}
+                      potentialOrder={potentialOrder}
+                    ></PaypalCheckout>
+                  ) : (
+                    <button
+                      disabled={disabled}
+                      onClick={() => setCheckout(true)}
+                      className={styles.pay_btn}
+                      style={{ backgroundColor: "#00457C" }}
+                    >
+                      Checkout with Paypal
+                    </button>
+                  )}
+                </div>
+                <div
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  <Stripe style={{ height: "50px" }}></Stripe>
+                  <ApplePay style={{ height: "50px" }}></ApplePay>
+                  <GooglePay style={{ height: "50px" }}></GooglePay>
+                  <CreditCardAlt
+                    style={{ height: "50px" }}
+                    onClick={potentialOrder}
+                  ></CreditCardAlt>
+                </div>
+              </div>
+            </div>{" "}
           </div>
         </div>
-        <PostOrder/>
-
+      </div>
+      <PostOrder />
     </>
   );
 };

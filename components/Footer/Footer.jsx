@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import Image from "next/image";
 
 import styled from "styled-components";
@@ -119,6 +118,16 @@ const WebsiteRights = styled.small`
   margin-left: 5px;
   font-size: 16px;
 `;
+const NextLink = styled.a`
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  font-size: 16px;
+
+  &:hover {
+    transition: 0.3s ease-out;
+  }
+`;
 
 const Footer = ({ footerColor }) => {
   return (
@@ -129,30 +138,52 @@ const Footer = ({ footerColor }) => {
             <FooterLinksWrapper>
               <FooterLinkItems>
                 <FooterLinksTitles>Services</FooterLinksTitles>
-                <FooterLink href="/kills-boosting">Kills Boost</FooterLink>
-                <FooterLink href="/rank-boosting">Rank Boost</FooterLink>
-                <FooterLink href="/acheivement-badges">
-                  Acheivment Badges
+                <FooterLink passHref href="/kills-boosting">
+                  <NextLink>Kills Boost</NextLink>
                 </FooterLink>
-                <FooterLink href="/wins-boosting">Wins Boost</FooterLink>
+                <FooterLink passHref href="/Services/RankBoosting">
+                  <NextLink>Rank Boost</NextLink>
+                </FooterLink>
+                <FooterLink passHref href="/acheivement-badges">
+                  <NextLink> Acheivment Badges</NextLink>
+                </FooterLink>
+                <FooterLink passHref href="/wins-boosting">
+                  <NextLink> Wins Boost</NextLink>
+                </FooterLink>
               </FooterLinkItems>
 
               <FooterLinkItems>
                 <FooterLinksTitles>Explore</FooterLinksTitles>
-                <FooterLink href="/">Home</FooterLink>
-                <FooterLink href="/register">Sign Up</FooterLink>
-                <FooterLink href="/login">Log-in</FooterLink>
-                <FooterLink href="/profile">Profile</FooterLink>
+                <FooterLink passHref href="/">
+                  <NextLink> Home</NextLink>
+                </FooterLink>
+                <FooterLink passHref href="/Authentication/register">
+                  <NextLink> Sign Up</NextLink>
+                </FooterLink>
+                <FooterLink passHref href="/Authentication/login">
+                  <NextLink> Log-in</NextLink>
+                </FooterLink>
+                <FooterLink passHref href="/profile">
+                  <NextLink> Profile</NextLink>
+                </FooterLink>
               </FooterLinkItems>
             </FooterLinksWrapper>
 
             <FooterLinksWrapper>
               <FooterLinkItems>
                 <FooterLinksTitles>Contact Us</FooterLinksTitles>
-                <FooterLink href="/contact-us">USA</FooterLink>
-                <FooterLink href="/contact-us">EU</FooterLink>
-                <FooterLink href="/contact-us">Asia</FooterLink>
-                <FooterLink href="/contact-us">World-Wide</FooterLink>
+                <FooterLink passHref href="/contact-us">
+                  <NextLink> USA</NextLink>
+                </FooterLink>
+                <FooterLink passHref href="/contact-us">
+                  <NextLink> EU</NextLink>
+                </FooterLink>
+                <FooterLink passHref href="/contact-us">
+                  <NextLink> Asia</NextLink>
+                </FooterLink>
+                <FooterLink passHref href="/contact-us">
+                  <NextLink> World-Wide</NextLink>
+                </FooterLink>
               </FooterLinkItems>
 
               <FooterLinkItems>
@@ -184,7 +215,6 @@ const Footer = ({ footerColor }) => {
             height={50}
             src={"/assets/images/ssls.png"}
             alt="ssl secured"
-     
           ></Image>
           <p>SSL SECURED</p>
           <Image
@@ -195,7 +225,6 @@ const Footer = ({ footerColor }) => {
           ></Image>
           <SocialMedia>
             <SocialMediaWrap>
-           
               <WebsiteRights>
                 Boostify © {new Date().getFullYear()}. All rights reserved.
               </WebsiteRights>{" "}

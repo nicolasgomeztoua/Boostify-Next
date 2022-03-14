@@ -2,7 +2,7 @@ import RankedBoost from "../../public/assets/images/rankedboost.png";
 import KillsBoost from "../../public/assets/images/killsboost.png";
 import WinsBoost from "../../public/assets/images/winboost.jpg";
 import AcheivementBadges from "../../public/assets/images/badgeboost.png";
-import ArenasBoost from "../../public/assets/images/Placement.png"
+import ArenasBoost from "../../public/assets/images/Placement.png";
 export const MenuItems = [
   {
     icon: RankedBoost,
@@ -26,14 +26,14 @@ export const MenuItems = [
   {
     icon: AcheivementBadges,
     title: "Achievement Badges",
-    path: "/acheivement-badges",
+    path: "/Services/BadgeBoosting",
     cName: "dropdown-link",
     cNameIcon: "Menu-badges",
   },
   {
     icon: ArenasBoost,
     title: "Arenas Boost",
-    path: "/arenas-boost",
+    path: "/Services/ArenasBoosting",
     cName: "dropdown-link",
     cNameIcon: "Menu-Arenas",
   },

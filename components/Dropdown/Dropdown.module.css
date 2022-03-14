@@ -70,15 +70,15 @@
   font-size: 22.62px;
   margin-bottom: 20px;
 }
-@media screen and (max-width: 811px) {
+/* @media screen and (max-width: 811px) {
   .Icon_Title_container {
     transform: scale(0.7);
   }
   .Icon_Title_container p {
     transform: scale(0.9);
   }
-}
-@media screen and (max-width: 450px) {
+} */
+/* @media screen and (max-width: 450px) {
   .prodMenu {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -97,7 +97,7 @@
   .dropdown_link {
     height: 150px;
   }
-}
+} */
 .prodMenu {
   display: flex;
   flex-direction: row;
@@ -105,11 +105,11 @@
   border-bottom: 4px solid #e43403;
   border-radius: 10px;
 }
-@media screen and (max-width: 350px) {
+/* @media screen and (max-width: 350px) {
   .Icon_Title_container {
     transform: scale(0.45);
   }
-}
+} */
 .RankedBoost {
   height: 150px;
 }

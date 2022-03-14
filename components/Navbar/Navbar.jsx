@@ -58,7 +58,7 @@ const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [displayCheckBox, setDisplayCheckBox] = useState("none");
-  const [displayButton, setDisplayButton] = useState(true);
+  const [displayButton, setDisplayButton] = useState("flex");
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
@@ -89,7 +89,7 @@ const Navbar = () => {
   const logoutHandler = () => {
     localStorage.removeItem("authToken");
     history.push(
-      "/login" + typeof window !== "undefined" ? window?.location.search : null
+      "/Authentication/login" + typeof window !== "undefined" ? window?.location.search : null
     );
     setLoggedIn(false);
   };

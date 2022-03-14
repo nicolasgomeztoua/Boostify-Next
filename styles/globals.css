@@ -19,3 +19,6 @@ body {
 a {
   text-decoration: none !important;
 }
+  #scales {
+    display: none;
+  }

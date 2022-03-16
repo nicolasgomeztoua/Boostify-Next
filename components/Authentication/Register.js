@@ -13,7 +13,7 @@ const Register = () => {
   const history = useRouter();
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
-      history.push("/Authentication/login" + window.location.search);
+      history.push("/Authentication/Login" + window.location.search);
     }
   }, [history]);
 
@@ -42,7 +42,7 @@ const Register = () => {
         config
       );
       localStorage.setItem("authToken", data.token);
-      history.push("/Authentication/login" + window.location.search);
+      history.push("/Authentication/Login" + window.location.search);
     } catch (err) {
       setError(error.response.data.error);
       setTimeout(() => {
@@ -115,7 +115,7 @@ const Register = () => {
 
           <span className={auth["register-screen__subtext"]}>
             Already have an account?{" "}
-            <Link to={"/Authentication/login" + window.location.search}>
+            <Link to={"/Authentication/Login" + window.location.search}>
               Login
             </Link>
           </span>

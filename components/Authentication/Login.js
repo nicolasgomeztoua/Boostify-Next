@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
 import auth from "./AuthComponents.module.css";
-import {useRouter} from "next/router"
-
+import { useRouter } from "next/router";
+import { signIn, useSession } from "next-auth/react";
 /* import {
   StepTwoWarningContainer,
   StepTwoWarning,
 } from "../RankBoost/RankedBoostProductElements"; */
 const Login = () => {
+ const { data: session, status } = useSession();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -95,6 +96,12 @@ const Login = () => {
             id="login"
           >
             Login
+          </button>
+          <button
+            onClick={signIn}
+            className={`${auth["form-btn"]} ${auth["form-btn-primary"]}`}
+          >
+            Login With google
           </button>
 
           <span className={auth["login-screen__subtext"]}>

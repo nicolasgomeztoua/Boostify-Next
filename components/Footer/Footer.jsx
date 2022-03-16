@@ -138,16 +138,16 @@ const Footer = ({ footerColor }) => {
             <FooterLinksWrapper>
               <FooterLinkItems>
                 <FooterLinksTitles>Services</FooterLinksTitles>
-                <FooterLink passHref href="/kills-boosting">
+                <FooterLink passHref href="/Services/KillsBoosting">
                   <NextLink>Kills Boost</NextLink>
                 </FooterLink>
                 <FooterLink passHref href="/Services/RankBoosting">
                   <NextLink>Rank Boost</NextLink>
                 </FooterLink>
-                <FooterLink passHref href="/acheivement-badges">
+                <FooterLink passHref href="/Services/BadgeBoosting">
                   <NextLink> Acheivment Badges</NextLink>
                 </FooterLink>
-                <FooterLink passHref href="/wins-boosting">
+                <FooterLink passHref href="/Services/WinsBoosting">
                   <NextLink> Wins Boost</NextLink>
                 </FooterLink>
               </FooterLinkItems>
@@ -157,13 +157,13 @@ const Footer = ({ footerColor }) => {
                 <FooterLink passHref href="/">
                   <NextLink> Home</NextLink>
                 </FooterLink>
-                <FooterLink passHref href="/Authentication/register">
+                <FooterLink passHref href="/Authentication/Register">
                   <NextLink> Sign Up</NextLink>
                 </FooterLink>
-                <FooterLink passHref href="/Authentication/login">
+                <FooterLink passHref href="/Authentication/Login">
                   <NextLink> Log-in</NextLink>
                 </FooterLink>
-                <FooterLink passHref href="/profile">
+                <FooterLink passHref href="/Profile">
                   <NextLink> Profile</NextLink>
                 </FooterLink>
               </FooterLinkItems>
@@ -172,16 +172,16 @@ const Footer = ({ footerColor }) => {
             <FooterLinksWrapper>
               <FooterLinkItems>
                 <FooterLinksTitles>Contact Us</FooterLinksTitles>
-                <FooterLink passHref href="/contact-us">
+                <FooterLink passHref href="/ContactUs">
                   <NextLink> USA</NextLink>
                 </FooterLink>
-                <FooterLink passHref href="/contact-us">
+                <FooterLink passHref href="/ContactUs">
                   <NextLink> EU</NextLink>
                 </FooterLink>
-                <FooterLink passHref href="/contact-us">
+                <FooterLink passHref href="/ContactUs">
                   <NextLink> Asia</NextLink>
                 </FooterLink>
-                <FooterLink passHref href="/contact-us">
+                <FooterLink passHref href="/ContactUs">
                   <NextLink> World-Wide</NextLink>
                 </FooterLink>
               </FooterLinkItems>

@@ -1,15 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap");
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "PT Sans";
-}
 html,
 body {
   max-width: 100%;
   overflow-x: hidden;
+  font-family: "PT Sans";
 }
 @font-face {
   font-family: "castellar";
@@ -19,6 +13,13 @@ body {
 a {
   text-decoration: none !important;
 }
-  #scales {
-    display: none;
-  }
+#scales {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "PT Sans";
+}

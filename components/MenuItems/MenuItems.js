@@ -14,13 +14,13 @@ export const MenuItems = [
   {
     icon: KillsBoost,
     title: "Kills Boost",
-    path: "/kills-boosting",
+    path: "/Services/KillsBoosting",
     cName: "dropdown-link ",
   },
   {
     icon: WinsBoost,
     title: "Wins Boost",
-    path: "/wins-boosting",
+    path: "/Services/WinsBoosting",
     cName: "dropdown-link",
   },
   {

@@ -89,7 +89,9 @@ const Navbar = () => {
   const logoutHandler = () => {
     localStorage.removeItem("authToken");
     history.push(
-      "/Authentication/login" + typeof window !== "undefined" ? window?.location.search : null
+      "/Authentication/Login?" + typeof window !== "undefined"
+        ? window?.location.search
+        : null
     );
     setLoggedIn(false);
   };
@@ -143,7 +145,7 @@ const Navbar = () => {
           <li className={styles.nav_item}>
             <Link
               passHref
-              href={`/profile${
+              href={`/Profile${
                 typeof window !== "undefined" ? window?.location.search : null
               }`}
               onClick={closeMobileMenu}
@@ -194,13 +196,19 @@ const Navbar = () => {
               Logout <LogOut style={{ height: "27px" }}></LogOut>
             </p>{" "}
           </li>
-
-          <div className={styles.nav_item}>
-            <Button className={styles.nav_links} display={displayButton}>
-              Log In
-            </Button>
-          </div>
-
+          <Link
+            passHref
+            href={`/Authentication/Login${
+              typeof window !== "undefined" ? window?.location.search : null
+            }`}
+            style={{ textDecoration: "none" }}
+          >
+            <div className={styles.nav_item}>
+              <Button className={styles.nav_links} display={displayButton}>
+                Log In
+              </Button>
+            </div>
+          </Link>
           <li className={styles.nav_item}>
             <Link
               passHref

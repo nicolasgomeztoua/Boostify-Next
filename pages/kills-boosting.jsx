@@ -1,9 +1,10 @@
 import React from "react";
-import KillBoost from "../../components/KillsBoost/KillBoost";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
-import ProdMenu from "../../components/ProdMenu/ProdMenu";
+import KillBoost from "../components/KillsBoost/KillBoost";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
+import ProdMenu from "../components/ProdMenu/ProdMenu";
 import Head from "next/head";
+import Hero from "../components/Hero/Hero";
 const BadgeBoosting = () => {
   return (
     <>
@@ -16,6 +17,7 @@ const BadgeBoosting = () => {
         <meta name="theme-color" content="#008f68" />
       </Head>
       <Navbar />
+      <Hero videoUrl={"https://www.youtube.com/watch?v=4nwqSr3w8pQ"}></Hero>
       <ProdMenu></ProdMenu>
       <KillBoost />
       <Footer footerColor="#6d00ae" />

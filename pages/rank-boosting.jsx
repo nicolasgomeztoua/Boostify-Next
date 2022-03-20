@@ -1,13 +1,13 @@
 import React from "react";
-import ComingSoon from "../../components/ComingSoon/ComingSoon";
-import Navbar from "../../components/Navbar/Navbar";
-
-import ProdMenu from "../../components/ProdMenu/ProdMenu";
+import RankBoostProduct from "../components/RankedBoost/RankBoostProduct";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
+import ProdMenu from "../components/ProdMenu/ProdMenu";
 import Head from "next/head";
 
 const RankBoosting = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>Boostify | Apex Legends Rank Boosting</title>
         <meta
@@ -16,9 +16,10 @@ const RankBoosting = () => {
         />
       </Head>
       <Navbar />
-
-      <ComingSoon></ComingSoon>
-    </div>
+      <ProdMenu></ProdMenu>
+      <RankBoostProduct />
+      <Footer footerColor="#e43403" />
+    </>
   );
 };
 

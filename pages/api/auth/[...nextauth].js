@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-
+import DiscordProvider from "next-auth/providers/discord";
 export default NextAuth({
   // Configure one or more authentication providers
   providers: [
@@ -10,20 +10,23 @@ export default NextAuth({
       authorizationUrl:
         "https://accounts.google.com/o/oauth2/v2/auth?prompt=consent&access_type=offline&response_type=code",
     }),
+    DiscordProvider({
+      clientId: process.env.DISCORD_CLIENT_ID,
+      clientSecret: process.env.DISCORD_CLIENT_SECRET,
+    }),
   ],
   jwt: {
     encryption: true,
+    secret: process.env.SECRET,
   },
-  secret: process.env.secret,
+
   callbacks: {
-    async jwt(token, account) {
-      if (account?.accessToken) {
-        token.accessToken = account.accessToken;
-      }
+    async jwt({ token, user, account, profile, isNewUser }) {
+      token.user = user;
       return token;
     },
-    redirect: async (url, _baseUrl) => {
-      Promise.resolve("/");
+    async session({ session, user, token }) {
+      return session;
     },
   },
 });

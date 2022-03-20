@@ -13,6 +13,7 @@ const Profile = () => {
   const [username, setUsername] = useState("");
   const [orders, setOrders] = useState([]);
   const [userId, setUserId] = useState([]);
+  const [userImage, setUserImage] = useState(userImg);
   const history = useRouter();
   useEffect(() => {
     const fetchPrivateDate = async () => {
@@ -28,9 +29,13 @@ const Profile = () => {
           "https://secret-cove-64633.herokuapp.com/api/private",
           config
         );
+        console.log(data);
         setUsername(data.username);
         setUserId(data.user_id);
         setOrders(data.orders);
+        if (data.image) {
+          setUserImage(data.image);
+        }
       } catch (error) {
         localStorage.removeItem("authToken");
 
@@ -50,7 +55,7 @@ const Profile = () => {
             style={{ backgroundImage: `url(${backgroundImage})` }}
           ></div>
           <ProfileCard
-            userImg={userImg}
+            userImg={userImage}
             username={username}
             orderObj={orders}
           ></ProfileCard>

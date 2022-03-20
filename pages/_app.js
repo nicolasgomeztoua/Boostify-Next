@@ -5,6 +5,8 @@ import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import "swiper/scss/scrollbar";
 import "react-circular-progressbar/dist/styles.css";
+import "react-toastify/dist/ReactToastify.css";
+
 import { SessionProvider } from "next-auth/react";
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (

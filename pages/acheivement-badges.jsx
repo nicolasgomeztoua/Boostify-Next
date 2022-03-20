@@ -1,8 +1,8 @@
 import React from "react";
-import AcheivementBoostProduct from "../../components/AcheivementBoost/AcheivementBoostProduct";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
-import ProdMenu from "../../components/ProdMenu/ProdMenu";
+import AcheivementBoostProduct from "../components/AcheivementBoost/AcheivementBoostProduct";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
+import ProdMenu from "../components/ProdMenu/ProdMenu";
 import Head from "next/head";
 const BadgeBoosting = () => {
   return (

@@ -138,17 +138,17 @@ const Footer = ({ footerColor }) => {
             <FooterLinksWrapper>
               <FooterLinkItems>
                 <FooterLinksTitles>Services</FooterLinksTitles>
-                <FooterLink passHref href="/Services/KillsBoosting">
+                <FooterLink passHref href="/kills-boosting">
                   <NextLink>Kills Boost</NextLink>
                 </FooterLink>
-                <FooterLink passHref href="/Services/RankBoosting">
+                <FooterLink passHref href="/rank-boosting">
                   <NextLink>Rank Boost</NextLink>
                 </FooterLink>
-                <FooterLink passHref href="/Services/BadgeBoosting">
+                <FooterLink passHref href="/acheivement-badges">
                   <NextLink> Acheivment Badges</NextLink>
                 </FooterLink>
-                <FooterLink passHref href="/Services/WinsBoosting">
-                  <NextLink> Wins Boost</NextLink>
+                <FooterLink passHref href="/Arenas-Boost">
+                  <NextLink> Arenas Boost</NextLink>
                 </FooterLink>
               </FooterLinkItems>
 

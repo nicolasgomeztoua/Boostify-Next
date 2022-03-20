@@ -12,6 +12,7 @@ import { LogOut } from "@styled-icons/boxicons-regular/LogOut";
 import { Bars } from "@styled-icons/fa-solid/Bars";
 import { Cross } from "@styled-icons/icomoon/Cross";
 import styled, { css } from "styled-components";
+import { signOut, useSession } from "next-auth/react";
 const NavMenu = css`
   color: white;
   height: 30px;
@@ -59,16 +60,17 @@ const Navbar = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [displayCheckBox, setDisplayCheckBox] = useState("none");
   const [displayButton, setDisplayButton] = useState("flex");
+  const { data: session, status } = useSession();
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
   useEffect(() => {
-    if (localStorage.getItem("authToken")) {
+    if (localStorage.getItem("authToken") || session?.user?.name) {
       setLoggedIn(true);
     } else if (!localStorage.getItem("authToken")) {
       setLoggedIn(false);
     }
-  }, []);
+  }, [session?.user?.name]);
 
   const onMouseEnter = () => {
     if (window?.innerWidth < 960) {
@@ -88,6 +90,7 @@ const Navbar = () => {
 
   const logoutHandler = () => {
     localStorage.removeItem("authToken");
+    signOut();
     history.push(
       "/Authentication/Login?" + typeof window !== "undefined"
         ? window?.location.search
@@ -192,9 +195,14 @@ const Navbar = () => {
               cursor: "pointer",
             }}
           >
-            <p id="" className={`${styles.nav_links}${styles.logout}`}>
-              Logout <LogOut style={{ height: "27px" }}></LogOut>
-            </p>{" "}
+            <NextLink>
+              <p
+                style={{ width: "90px", marginBottom: "0" }}
+                className={`${styles.nav_links}${styles.logout}`}
+              >
+                Logout <LogOut style={{ height: "27px" }}></LogOut>
+              </p>{" "}
+            </NextLink>
           </li>
           <Link
             passHref
@@ -203,10 +211,8 @@ const Navbar = () => {
             }`}
             style={{ textDecoration: "none" }}
           >
-            <div className={styles.nav_item}>
-              <Button className={styles.nav_links} display={displayButton}>
-                Log In
-              </Button>
+            <div className={styles.nav_item} style={{ display: displayButton }}>
+              <Button className={styles.nav_links}>Log In</Button>
             </div>
           </Link>
           <li className={styles.nav_item}>

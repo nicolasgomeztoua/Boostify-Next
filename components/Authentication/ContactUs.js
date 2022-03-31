@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Link from "next/Link";
+import Link from "next/link";
 import styles from "../Authentication/AuthComponents.module.css";
 import { useRouter } from "next/router";
 import {

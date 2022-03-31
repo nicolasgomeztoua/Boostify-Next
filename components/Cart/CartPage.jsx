@@ -19,7 +19,7 @@ import styled from "styled-components";
 import Head from "next/head";
 import PaypalCheckout from "./PaypalCheckout";
 import findGetParameter from "../../utils/getParameter";
-import Script from "next/Script";
+import Script from "next/script";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";

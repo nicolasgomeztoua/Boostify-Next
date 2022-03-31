@@ -4,7 +4,9 @@ import { toast, ToastContainer } from "react-toastify";
 import findGetParameter from "../utils/getParameter";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
-export default function Home() {
+import Home from "../components/Home/Home";
+
+export default function Index() {
   const failure = () => {
     toast.error(
       "Sorry! you already have a boostify account with that email/username, Please login using the form.",
@@ -40,7 +42,8 @@ export default function Home() {
         />
         <meta name="theme-color" content="#008f68" />
       </Head>
-      <Navbar></Navbar>
+      <Navbar />
+      <Home />
       <ToastContainer
         position="top-right"
         autoClose={5000}

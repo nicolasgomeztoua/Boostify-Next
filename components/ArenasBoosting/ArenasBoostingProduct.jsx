@@ -1150,16 +1150,16 @@ const ArenasBoostingProduct = () => {
                   <ExtraCheckBox
                     onClick={() => setActiveOffline(!activeOffline)}
                   />
-                  <p className="ExtraDesc">Appear offline</p>
-                  <p className="ExtraDesc"> FREE</p>
+                  <ExtraDesc className="ExtraDesc">Appear offline</ExtraDesc>
+                  <ExtraDesc className="ExtraDesc"> FREE</ExtraDesc>
                 </IconDescWrapper>
               </ExtraIconButtonWrap>
               <ExtraIconButtonWrap>
                 <IconDescWrapper>
                   <IconDuo></IconDuo>
                   <ExtraCheckBox onClick={() => setActiveDuo(!activeDuo)} />
-                  <p className="ExtraDesc">Duo-Queue </p>
-                  <p className="ExtraDesc"> +75%</p>
+                  <ExtraDesc className="ExtraDesc">Duo-Queue </ExtraDesc>
+                  <ExtraDesc className="ExtraDesc"> +75%</ExtraDesc>
                 </IconDescWrapper>
               </ExtraIconButtonWrap>
               <ExtraIconButtonWrap>
@@ -1168,16 +1168,16 @@ const ArenasBoostingProduct = () => {
                   <ExtraCheckBox
                     onClick={() => setActiveStream(!activeStream)}
                   />
-                  <p className="ExtraDesc">On Stream</p>
-                  <p className="ExtraDesc"> +25%</p>
+                  <ExtraDesc className="ExtraDesc">On Stream</ExtraDesc>
+                  <ExtraDesc className="ExtraDesc"> +25%</ExtraDesc>
                 </IconDescWrapper>
               </ExtraIconButtonWrap>
               <ExtraIconButtonWrap>
                 <IconDescWrapper>
                   <IconSpeed></IconSpeed>
                   <ExtraCheckBox onClick={() => setPriority(!activePriority)} />
-                  <p className="ExtraDesc">Boost-Priority</p>
-                  <p className="ExtraDesc"> +50%</p>
+                  <ExtraDesc className="ExtraDesc">Boost-Priority</ExtraDesc>
+                  <ExtraDesc className="ExtraDesc"> +50%</ExtraDesc>
                 </IconDescWrapper>
               </ExtraIconButtonWrap>
             </ExtrasOptions>

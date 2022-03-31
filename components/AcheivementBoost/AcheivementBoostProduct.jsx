@@ -13,6 +13,7 @@ import {
   CheckLabel,
   DiscountButton,
   Button,
+  ExtraDesc,
 } from "../ProductComponents/ProductElements";
 import Link from "next/link";
 import {
@@ -25,6 +26,8 @@ import { useDispatchCart } from "../../hooks/Cart/CartHandler";
 import TwentyBomb from "../../public/assets/images/20Bomb.png";
 import styled from "styled-components";
 import Image from "next/image";
+import styles from "./Acheivementbadges.module.css";
+
 const BadgesTitle = styled.h2`
   display: flex;
   justify-content: center;
@@ -518,16 +521,16 @@ const AcheivementBoostProduct = () => {
                   </div>
                   <BadgeDesc>{Items.name}</BadgeDesc>
                   <BadgeDesc>{Items.price}$</BadgeDesc>
-                  <CheckLabel className="check" key={Items.key}>
+                  <CheckLabel className={styles["check"]} key={Items.key}>
                     <input
                       type="checkbox"
-                      className="inputCheck"
+                      className={styles["inputCheck"]}
                       name={Items.name}
                       checked={checkedPopBadges[Items.name]}
                       onChange={handleChangePop}
                     />
 
-                    <div className="box"></div>
+                    <div className={styles["box"]}></div>
                   </CheckLabel>
                 </TextIconCheckBox>
               );
@@ -564,16 +567,16 @@ const AcheivementBoostProduct = () => {
                     </div>
                     <BadgeDesc>{Items.name}</BadgeDesc>
                     <BadgeDesc>{Items.price}$</BadgeDesc>
-                    <CheckLabel className="check" key={Items.key}>
+                    <CheckLabel className={styles["check"]} key={Items.key}>
                       <input
                         type="checkbox"
-                        className="inputCheck"
+                        className={styles["inputCheck"]}
                         name={Items.name}
                         checked={checkedExtraBadges[Items.name]}
                         onChange={handleChangeExtra}
                       />
 
-                      <div className="box"></div>
+                      <div className={styles["box"]}></div>
                     </CheckLabel>
                   </TextIconCheckBox>
                 );
@@ -611,20 +614,20 @@ const AcheivementBoostProduct = () => {
                   </div>
                   <BadgeDesc>{Items.name}</BadgeDesc>
                   <CheckLabel
-                    className="check"
+                    className={styles["check"]}
                     key={Items.key}
                     style={{ backgroundColor: "black" }}
                   >
                     <input
                       type="checkbox"
-                      className="inputCheck"
+                      className={styles["inputCheck"]}
                       name={Items.name}
                       checked={checkedLegend[Items.name]}
                       onChange={handleChangeLegends}
                     />
 
                     <div
-                      className="box"
+                      className={styles["box"]}
                       style={{ backgroundColor: "black" }}
                     ></div>
                   </CheckLabel>
@@ -641,32 +644,36 @@ const AcheivementBoostProduct = () => {
             <IconDescWrapper>
               <IconOffline></IconOffline>
               <ExtraCheckBox onClick={() => setActiveOffline(!activeOffline)} />
-              <p className="ExtraDesc">Appear offline</p>
-              <p className="ExtraDesc"> FREE</p>
+              <ExtraDesc className={styles["ExtraDesc"]}>
+                Appear offline
+              </ExtraDesc>
+              <ExtraDesc className={styles["ExtraDesc"]}> FREE</ExtraDesc>
             </IconDescWrapper>
           </ExtraIconButtonWrap>
           <ExtraIconButtonWrap>
             <IconDescWrapper>
               <IconDuo></IconDuo>
               <ExtraCheckBox onClick={() => setActiveDuo(!activeDuo)} />
-              <p className="ExtraDesc">Duo-Queue </p>
-              <p className="ExtraDesc"> +75%</p>
+              <ExtraDesc className={styles["ExtraDesc"]}>Duo-Queue </ExtraDesc>
+              <ExtraDesc className={styles["ExtraDesc"]}> +75%</ExtraDesc>
             </IconDescWrapper>
           </ExtraIconButtonWrap>
           <ExtraIconButtonWrap>
             <IconDescWrapper>
               <IconStream />
               <ExtraCheckBox onClick={() => setActiveStream(!activeStream)} />
-              <p className="ExtraDesc">On Stream</p>
-              <p className="ExtraDesc"> +75% </p>
+              <ExtraDesc className={styles["ExtraDesc"]}>On Stream</ExtraDesc>
+              <ExtraDesc className={styles["ExtraDesc"]}> +75% </ExtraDesc>
             </IconDescWrapper>
           </ExtraIconButtonWrap>
           <ExtraIconButtonWrap>
             <IconDescWrapper>
               <IconSpeed></IconSpeed>
               <ExtraCheckBox onClick={() => setPriority(!activePriority)} />
-              <p className="ExtraDesc">Boost-Priority</p>
-              <p className="ExtraDesc"> +25%</p>
+              <ExtraDesc className={styles["ExtraDesc"]}>
+                Boost-Priority
+              </ExtraDesc>
+              <ExtraDesc className={styles["ExtraDesc"]}> +25%</ExtraDesc>
             </IconDescWrapper>
           </ExtraIconButtonWrap>
         </ExtrasOptions>
@@ -674,7 +681,10 @@ const AcheivementBoostProduct = () => {
       <StepTwoWarningContainer style={{ display: valid }}>
         Please Select a legend
         <StepTwoWarning>
-          <i className="fa fa-times" onClick={() => setValid("none")}></i>
+          <i
+            className={styles["fa fa-times"]}
+            onClick={() => setValid("none")}
+          ></i>
         </StepTwoWarning>
       </StepTwoWarningContainer>
       <TotalContainer>
@@ -706,9 +716,9 @@ const AcheivementBoostProduct = () => {
             height="50px"
             width="250px"
           ></InputTyped>
-          <div className="button_cont" align="center">
+          <div className={styles["button_cont"]} align="center">
             <DiscountButton
-              className="example_c"
+              className={styles["example_c"]}
               style={{ opacity: "0.4" }}
               disabled={true}
             >
@@ -726,7 +736,7 @@ const AcheivementBoostProduct = () => {
             {"$"}
           </TotalMoney>
 
-          <div className="button_cont" align="center">
+          <div className={styles["button_cont"]} align="center">
             <Link
               href={`/Cart${
                 typeof window !== "undefined" ? window?.location.search : null
@@ -750,7 +760,7 @@ const AcheivementBoostProduct = () => {
                     badgesExtras: Object.keys(filteredExtras),
                   });
                 }}
-                className="example_d"
+                className={styles["example_d"]}
                 disabled={disabledState}
               >
                 {disabledButtonText}

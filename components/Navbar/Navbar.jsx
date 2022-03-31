@@ -89,8 +89,9 @@ const Navbar = () => {
   };
 
   const logoutHandler = () => {
-    localStorage.removeItem("authToken");
     signOut();
+    localStorage.removeItem("authToken");
+
     history.push(
       "/Authentication/Login?" + typeof window !== "undefined"
         ? window?.location.search

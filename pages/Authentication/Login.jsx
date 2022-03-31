@@ -6,8 +6,6 @@ import { getSession } from "next-auth/react";
 import { ToastContainer } from "react-toastify";
 import Oauth from "../../utils/Oauth";
 const LoginPage = ({ user }) => {
-  console.log(user);
-
   if (user) {
     Oauth(user.name, user.email, user.email, user.image);
   }

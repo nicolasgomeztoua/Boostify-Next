@@ -11,7 +11,7 @@ import DiscordButton from "../LoginWithDiscord/DiscordButton";
   StepTwoWarning,
 } from "../RankBoost/RankedBoostProductElements"; */
 const Login = () => {
-  const { data: session, status } = useSession();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -53,7 +53,6 @@ const Login = () => {
 
   return (
     <>
-      <button onClick={() => signOut()}>HEELO</button>
       <div className={auth["login-screen"]}>
         <form onSubmit={loginHandler} className={auth["login-screen__form"]}>
           <h3 className={auth["login-screen__title"]}>Login</h3>

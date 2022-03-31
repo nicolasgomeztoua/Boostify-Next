@@ -17,7 +17,7 @@ const BadgeBoosting = () => {
         <meta name="theme-color" content="#008f68" />
       </Head>
       <Navbar />
-      <Hero videoUrl={"https://www.youtube.com/watch?v=4nwqSr3w8pQ"}></Hero>
+
       <ProdMenu></ProdMenu>
       <KillBoost />
       <Footer footerColor="#6d00ae" />

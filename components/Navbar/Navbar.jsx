@@ -164,7 +164,7 @@ const Navbar = () => {
           >
             <Link
               passHref
-              href={"/Services/RankBoosting"}
+              href={"/rank-boosting"}
               className={styles.nav_links}
               onClick={closeMobileMenu}
             >

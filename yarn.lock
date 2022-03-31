@@ -2873,6 +2873,11 @@ swiper@^8.0.7:
     dom7 "^4.0.4"
     ssr-window "^4.0.2"
 
+tawkto-react@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/tawkto-react/-/tawkto-react-3.0.1.tgz#e9436d5d9adc09190c1bc52d2d42cfd20d899671"
+  integrity sha512-iuv3LgT8nNVPuqONgzQnuJkjwGNjMvkXx1Tkb3I6+3LEIyX7rahAXHSkpVc80BvPG6FAK0FW/77dDVfc2idilQ==
+
 text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/text-table/-/text-table-0.2.0.tgz"

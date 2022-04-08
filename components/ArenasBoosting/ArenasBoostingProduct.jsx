@@ -1251,7 +1251,7 @@ const ArenasBoostingProduct = () => {
                         ).toFixed(2),
                         firstValue: firstValue,
                         secondValue: secondValue,
-                        icon: secondRankImg,
+                        icon: secondRankImg.src,
                         extrasArr: Object.entries(extrasArr),
                         filteredExtras: Object.keys(filteredExtras),
                         placementMatches: placementMatches,

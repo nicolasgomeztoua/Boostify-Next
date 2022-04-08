@@ -146,7 +146,7 @@ const Cart = () => {
     );
     setRankedImage(
       items?.flatMap((element) => {
-        return element.icon;
+        return element.icon.src;
       })
     );
     setKills(

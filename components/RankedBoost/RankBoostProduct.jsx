@@ -753,7 +753,7 @@ const RankBoostProduct = () => {
                         ).toFixed(2),
                         firstValue: firstValue,
                         secondValue: secondValue,
-                        icon: secondRankImage,
+                        icon: secondRankImage.src,
                         extrasArr: Object.entries(extrasArr),
                         filteredExtras: Object.keys(filteredExtras),
                       })

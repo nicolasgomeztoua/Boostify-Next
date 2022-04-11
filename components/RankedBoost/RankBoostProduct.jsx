@@ -61,19 +61,29 @@ const RankBoostProduct = () => {
   const [secondTier, setSecondTier] = useState("");
 
   const [invalid, setInvalid] = useState("none");
-  /* const [validPromo, setValidPromo] = useState(false); */
+  const [validPromo, setValidPromo] = useState(false);
   const [activeDuo, setActiveDuo] = useState(false);
   const [activeStream, setActiveStream] = useState(false);
   const [activePriority, setPriority] = useState(false);
   const [activeOffline, setActiveOffline] = useState(false);
   const [filteredExtras, setFilteredExtras] = useState("");
-
+  const [opacity, setOpacity] = useState(1);
   const [totalMoney, setTotalMoney] = useState(0);
   const [moneyMultiplierDuo, setMoneyMultiplierDuo] = useState(0);
   const [moneyMultiplierStream, setMoneyMultiplierStream] = useState(0);
   const [moneyMultiplierPriority, setMoneyMultipliePriority] = useState(0);
   const [completionTime, setCompletionTime] = useState("");
+  const [disabledDiscount, setDisabledDiscount] = useState(false);
 
+  const handleDiscount = () => {
+
+    if (validPromo === "boostify5") {
+ 
+      setTotalMoney(totalMoney - totalMoney * 0.05);
+      setDisabledDiscount(true);
+      setOpacity(0.4);
+    }
+  };
   useEffect(() => {
     if (totalMoney < 0) {
       setTotalMoney(0);
@@ -125,14 +135,6 @@ const RankBoostProduct = () => {
     }
   }, [secondValue, firstValue]);
 
-  /*   useEffect(() => {
-    if (secondValue > 10137 || secondValue < 10000) {
-      setDisabledDiscount("flex");
-    } else {
-      setDisabledDiscount("none");
-    }
-  }, [secondValue]); */
-
   useEffect(() => {
     if (firstValue > 19900) {
       setFirstValue(19900);
@@ -145,7 +147,6 @@ const RankBoostProduct = () => {
     }
   }, [secondValue]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedAdjustControls = useCallback(
     debounce((firstValue, secondValue) => {
       const prices = [
@@ -706,16 +707,16 @@ const RankBoostProduct = () => {
                 height="50px"
                 width="250px"
                 onChange={(e) => {
-                  // setValidPromo(e.target.value.toLowerCase());
+                  setValidPromo(e.target.value.toLowerCase());
                 }}
               ></InputTyped>
               <div className="button_cont" align="center">
                 <DiscountButton
                   className="example_c"
-                  disabled={true}
-                  style={{ opacity: 0.4 }}
+                  disabled={disabledDiscount}
+                  style={{ opacity: opacity }}
+                  onClick={() => handleDiscount()}
                 >
-                  {" "}
                   Apply
                 </DiscountButton>
               </div>

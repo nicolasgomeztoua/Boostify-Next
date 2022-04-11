@@ -485,7 +485,7 @@ const ArenasBoostingProduct = () => {
   const [secondTier, setSecondTier] = useState("");
 
   const [invalid, setInvalid] = useState("none");
-  /* const [validPromo, setValidPromo] = useState(false); */
+  const [validPromo, setValidPromo] = useState(false);
   const [activeDuo, setActiveDuo] = useState(false);
   const [activeStream, setActiveStream] = useState(false);
   const [activePriority, setPriority] = useState(false);
@@ -498,21 +498,18 @@ const ArenasBoostingProduct = () => {
   const [moneyMultiplierPriority, setMoneyMultipliePriority] = useState(0);
   const [completionTime, setCompletionTime] = useState("");
   const [placement, setPlacement] = useState(false);
-  /*   const [disabled, setDisabled] = useState(false);
-  const [opacity, setOpacity] = useState(1); */
-  /* const [disabledDiscount, setDisabledDiscount] = useState("none"); */
+  const [disabledDiscount, setDisabledDiscount] = useState(false);
+  const [opacity, setOpacity] = useState(1);
 
-  /*   const handleDiscount = () => {
-    if (
-      validPromo === "endofsplit30" &&
-      secondValue >= 10000 &&
-      secondValue <= 10138
-    ) {
-      setTotalMoney(totalMoney - totalMoney * 0.3);
-      setDisabled(true);
+ const handleDiscount = () => {
+
+    if (validPromo === "boostify5") {
+ 
+      setTotalMoney(totalMoney - totalMoney * 0.05);
+      setDisabledDiscount(true);
       setOpacity(0.4);
     }
-  }; */
+  };
   const PlacementPrice = 5;
   useEffect(() => {
     if (totalMoney < 0) {
@@ -564,14 +561,6 @@ const ArenasBoostingProduct = () => {
       setInvalid("none");
     }
   }, [secondValue, firstValue]);
-
-  /*   useEffect(() => {
-    if (secondValue > 10137 || secondValue < 10000) {
-      setDisabledDiscount("flex");
-    } else {
-      setDisabledDiscount("none");
-    }
-  }, [secondValue]); */
 
   useEffect(() => {
     if (firstValue > 19900) {
@@ -1204,14 +1193,15 @@ const ArenasBoostingProduct = () => {
                 height="50px"
                 width="250px"
                 onChange={(e) => {
-                  // setValidPromo(e.target.value.toLowerCase());
+                  setValidPromo(e.target.value.toLowerCase());
                 }}
               ></InputTyped>
               <div className="button_cont" align="center">
                 <DiscountButton
                   className="example_c"
-                  disabled={true}
-                  style={{ opacity: 0.4 }}
+                     disabled={disabledDiscount}
+                  style={{ opacity: opacity }}
+                  onClick={() => handleDiscount()}
                 >
                   {" "}
                   Apply

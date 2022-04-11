@@ -5,6 +5,7 @@ import findGetParameter from "../utils/getParameter";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import Home from "../components/Home/Home";
+import TagManager from "react-gtm-module/dist/TagManager";
 
 export default function Index() {
   const failure = () => {
@@ -23,6 +24,10 @@ export default function Index() {
   };
 
   useEffect(() => {
+    const tagManagerArgs = {
+      gtmId: "GTM-NXPK262",
+    };
+    TagManager.initialize(tagManagerArgs);
     const alreadySignedUpParam = findGetParameter("BoostifyAccountAlready");
     if (alreadySignedUpParam === "true") {
       failure();

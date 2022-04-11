@@ -21,7 +21,6 @@ const Paypal = ({ titles, totalPrice, potentialOrder }) => {
           });
         },
         onApprove: async (data, actions) => {
-          potentialOrder();
           const tagManagerArgs = {
             dataLayer: {
               event: "Purchase",
@@ -29,6 +28,8 @@ const Paypal = ({ titles, totalPrice, potentialOrder }) => {
             },
           };
           TagManager.dataLayer(tagManagerArgs);
+          potentialOrder();
+
           return actions.order.capture().then(function (details) {
             alert("Transaction completed by " + details.payer.name.given_name);
             setTimeout(() => {

@@ -178,7 +178,7 @@ const Navbar = () => {
           </li>
 
           <li className={styles.nav_item}>
-            <Link passHref href={"/contact_us"} onClick={closeMobileMenu}>
+            <Link passHref href={"/ContactUs"} onClick={closeMobileMenu}>
               <NextLink style={{ width: "120px" }} className={styles.nav_links}>
                 Contact Us
               </NextLink>

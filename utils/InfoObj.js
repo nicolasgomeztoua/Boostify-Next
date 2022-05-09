@@ -45,6 +45,7 @@ import Valk from "../public/assets/images/valk.png";
 import Seer from "../public/assets/images/Seer.png";
 import Ash from "../public/assets/images/Ash.png";
 import madMaggie from "../public/assets/images/madMaggie.png";
+import Newcastle from "../public/assets/images/Newcastle.png"
 export const PopularBadgesObj = [
   {
     name: "20 Bomb",
@@ -294,4 +295,8 @@ export const LegendsObj = [
     name: "Maggie",
     icon: madMaggie,
   },
+  {
+    name: "Newcastle",
+    icon: Newcastle,
+  }
 ];

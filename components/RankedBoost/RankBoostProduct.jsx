@@ -152,11 +152,6 @@ const RankBoostProduct = () => {
           Math.floor(firstValue / 100),
           Math.floor(secondValue / 100 + 1)
         );
-        console.log(Math.floor(firstValue / 100));
-
-        console.log(Math.floor(secondValue / 100));
-        
-        console.log(rankMultiplierArray);
         const summedMultiplier = rankMultiplierArray.reduce((a, b) => a + b, 0);
         setTotalMoney(summedMultiplier);
       }, 0),

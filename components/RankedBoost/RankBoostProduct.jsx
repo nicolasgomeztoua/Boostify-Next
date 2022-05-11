@@ -55,7 +55,7 @@ const RankBoostProduct = () => {
   const [firstTier, setFirstTier] = useState("I");
   const [firstRankImage, setFirstRankImage] = useState(gold);
   const [firstValue, setFirstValue] = useState(1000);
-  const [secondValue, setSecondValue] = useState(2000);
+  const [secondValue, setSecondValue] = useState(3000);
   const [secondRankImage, setSecondRankImage] = useState(gold);
   const [secondTier, setSecondTier] = useState("");
 

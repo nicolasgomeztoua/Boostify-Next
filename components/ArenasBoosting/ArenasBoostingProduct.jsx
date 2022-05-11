@@ -480,7 +480,7 @@ const ArenasBoostingProduct = () => {
   const [firstTier, setFirstTier] = useState("I");
   const [firstRankImg, setFirstRankImg] = useState(bronze);
   const [firstValue, setFirstValue] = useState(1000);
-  const [secondValue, setSecondValue] = useState(2000);
+  const [secondValue, setSecondValue] = useState(3000);
   const [secondRankImg, setSecondRankImg] = useState(silver);
   const [secondTier, setSecondTier] = useState("");
 

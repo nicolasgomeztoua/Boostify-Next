@@ -100,7 +100,7 @@ const TrustBadge = () => {
                     href="http://www.wicz.com/story/45907133/boostifys-apex-predators-help-throngs-of-players-rank-up-in-apex-legends
  "
                     target="_Blank"
-                    rel="nofollow"
+                    rel="nofollow noreferrer"
                   >
                     <img
                       alt="Featured on FOX News"
@@ -113,7 +113,7 @@ const TrustBadge = () => {
                     href="http://finance.azcentral.com/azcentral/news/read/42204848/
  "
                     target="_Blank"
-                    rel="nofollow"
+                    rel="nofollow noreferrer"
                   >
                     <img
                       alt="Featured on USA Today"
@@ -126,7 +126,7 @@ const TrustBadge = () => {
                     href="http://digitaljournal.com/pr/boostifys-apex-predators-help-throngs-of-players-rank-up-in-apex-legends
  "
                     target="_Blank"
-                    rel="nofollow"
+                    rel="nofollow noreferrer"
                   >
                     <img
                       alt="Featured on DigitalJournal"
@@ -138,7 +138,7 @@ const TrustBadge = () => {
                     href="https://www.newschannelnebraska.com/story/45907133/boostifys-apex-predators-help-throngs-of-players-rank-up-in-apex-legends
  "
                     target="_Blank"
-                    rel="nofollow"
+                    rel="nofollow noreferrer"
                   >
                     <img
                       alt="Featured on NCN"
@@ -151,7 +151,7 @@ const TrustBadge = () => {
                     href="https://www.marketwatch.com/press-release/boostifys-apex-predators-help-throngs-of-players-rank-up-in-apex-legends-2022-02-18
  "
                     target="_Blank"
-                    rel="nofollow"
+                    rel="nofollow noreferrer"
                   >
                     <img
                       alt="Featured on Market Watch"
@@ -203,7 +203,7 @@ const TrustBadge = () => {
                     <a
                       style={{ color: "#717171" }}
                       href="https://www.brandpush.co?utm_source=Client+Referral&utm_medium=Trust+Badge&utm_campaign=Trust+Badge&utm_content=1644529715063"
-                      target="_Blank"
+                      target="_Blank" rel="noreferrer"
                     >
                       BrandPush.co
                     </a>

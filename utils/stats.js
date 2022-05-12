@@ -1,5 +1,5 @@
 export const walzyEditThis = {
-  ordersCompleted: 1321,
-  ordersQueued: 8,
+  ordersCompleted: 1325,
+  ordersQueued: 3,
   date: "2022-06-28"
 };

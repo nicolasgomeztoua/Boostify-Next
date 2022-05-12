@@ -215,7 +215,7 @@ const PackDesc = ({
       secondValue: secondValue,
       badgesExtras: "",
     });
-    history.push("/cart" + window.location.search);
+    history.push("/Cart" + window.location.search);
   };
 
   return (

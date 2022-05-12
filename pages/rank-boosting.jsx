@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import ProdMenu from "../components/ProdMenu/ProdMenu";
 import Head from "next/head";
+import Banner from "../components/Banner/Banner";
 
 const RankBoosting = () => {
   return (
@@ -17,6 +18,7 @@ const RankBoosting = () => {
       </Head>
       <Navbar />
       <ProdMenu></ProdMenu>
+      <Banner></Banner>
       <RankBoostProduct />
       <Footer footerColor="#e43403" />
     </>

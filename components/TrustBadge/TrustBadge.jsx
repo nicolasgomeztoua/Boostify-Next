@@ -2,7 +2,7 @@ import React from "react";
 
 const TrustBadge = () => {
   return (
-    <div>
+    <div style={{ paddingBottom:"30px" }}>
       {/* Trust Badge created and verified by https://www.brandpush.co */}{" "}
       <div style={{ width: "100%", marginTop: "10px", all: "unset" }}>
         <style

@@ -16,7 +16,7 @@ import WhatIsBoosting from "./WhatIsBoosting";
 import WhyUs from "./WhyUs";
 import Featured from "./Featured";
 import Head from "next/head";
-
+import Banner from "../Banner/Banner"
 import Stats from "./stats";
 import Reviews from "../Reviews/Reviews";
 const Verified = styled(VerifiedUser)`
@@ -122,6 +122,7 @@ const Home = () => {
       {/* ///////////////////////////////////// */}
       <Stats></Stats>
       <TrustBadge></TrustBadge>
+      <Banner></Banner>
       <Featured></Featured>
       <div className={styles["Home-intro"]} id={styles["lookingToBoost"]}>
         <h2

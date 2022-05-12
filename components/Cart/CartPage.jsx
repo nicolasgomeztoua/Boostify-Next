@@ -146,7 +146,7 @@ const Cart = () => {
     );
     setRankedImage(
       items?.flatMap((element) => {
-        return element.icon.src;
+        return element.icon;
       })
     );
     setKills(
@@ -190,7 +190,7 @@ const Cart = () => {
     kills,
     placementMatches,
   };
-
+  console.log(rankedImage);
   useEffect(() => {
     const fetchPrivateDate = async () => {
       const config = {

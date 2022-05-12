@@ -462,7 +462,7 @@ const AcheivementBoostProduct = () => {
 
   useEffect(() => {
     if (activeStream) {
-      setMoneyMultiplierStream(acheivementTotalMoney * 0.25);
+      setMoneyMultiplierStream(acheivementTotalMoney * 0.75);
     }
     if (!activeStream) {
       setMoneyMultiplierStream(0);
@@ -756,7 +756,7 @@ const AcheivementBoostProduct = () => {
                     selectedPopBadges: filteredPopBadges,
                     selectedExtraBadges: filteredExtraBadges,
                     selectedLegend: Object.keys(checkedLegend),
-                    icon: TwentyBomb,
+                    icon: TwentyBomb.src,
                     badgesExtras: Object.keys(filteredExtras),
                   });
                 }}

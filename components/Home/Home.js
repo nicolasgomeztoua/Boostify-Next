@@ -10,7 +10,7 @@ import { VerifiedUser } from "@styled-icons/material-twotone/VerifiedUser";
 import { QuestionAnswer } from "@styled-icons/material-twotone/QuestionAnswer";
 import OrdersCarousel from "./OrdersCarousel";
 import { Parallax } from "react-parallax";
-
+import TrustBadge from "../TrustBadge/TrustBadge";
 import WhoAreWe from "./WhoAreWe";
 import WhatIsBoosting from "./WhatIsBoosting";
 import WhyUs from "./WhyUs";
@@ -121,6 +121,7 @@ const Home = () => {
       </Parallax>
       {/* ///////////////////////////////////// */}
       <Stats></Stats>
+      <TrustBadge></TrustBadge>
       <Featured></Featured>
       <div className={styles["Home-intro"]} id={styles["lookingToBoost"]}>
         <h2

@@ -17,7 +17,7 @@ export const Container = styled.div`
 `;
 export const TextContainer = styled.div`
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   text-align: left;
   max-width: 80%;
   justify-self: flex-end;
@@ -37,7 +37,7 @@ export const TextBlock = styled.div`
 `;
 
 export const Title = styled.h3`
-  font-size: 56px;
+  font-size: 32px;
   padding-bottom: 20px;
 `;
 export const TitleSpan = styled.span`

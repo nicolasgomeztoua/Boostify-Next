@@ -190,7 +190,7 @@ const Cart = () => {
     kills,
     placementMatches,
   };
-  console.log(rankedImage);
+  
   useEffect(() => {
     const fetchPrivateDate = async () => {
       const config = {

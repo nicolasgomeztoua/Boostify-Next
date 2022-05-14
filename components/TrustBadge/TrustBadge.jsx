@@ -67,6 +67,7 @@ const TrustBadge = () => {
               style={{ textAlign: "center", margin: "0 auto" }}
             >
               <img
+              alt=""
                 className="brandpush-leaf"
                 style={{
                   position: "absolute",

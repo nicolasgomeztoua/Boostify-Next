@@ -18,7 +18,7 @@ const FaqNew = () => {
       {" "}
       <Container>
         <TextContainer>
-          <div></div>
+          
           <TextBlock>
             <Title>
               What <TitleSpan>is</TitleSpan> Apex Legends boosting?
@@ -73,7 +73,7 @@ const FaqNew = () => {
               </Link>
             </div>
           </TextBlock>
-          <div></div>
+        
         </TextContainer>
         <ImageContainer>
           <Image

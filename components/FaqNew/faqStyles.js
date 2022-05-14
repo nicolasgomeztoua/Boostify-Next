@@ -13,11 +13,12 @@ export const Container = styled.div`
   @media screen and (max-width: 990px) {
     grid-template-columns: 1fr;
     margin-top: -100px;
+    margin-left: 0;
   }
 `;
 export const TextContainer = styled.div`
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   text-align: left;
   max-width: 80%;
   justify-self: flex-end;
@@ -26,8 +27,6 @@ export const TextContainer = styled.div`
     text-align: center;
     justify-self: center;
   }
-  max-height: 1100px;
-  margin-bottom: 100px;
 `;
 
 export const TextBlock = styled.div`
@@ -37,7 +36,7 @@ export const TextBlock = styled.div`
 `;
 
 export const Title = styled.h3`
-  font-size: 32px;
+  font-size: 56px;
   padding-bottom: 20px;
 `;
 export const TitleSpan = styled.span`
@@ -54,8 +53,9 @@ export const ImageContainer = styled.div`
   justify-content: flex-start;
   @media screen and (max-width: 990px) {
     justify-content: center;
+    margin-left: 0;
   }
-  margin-left: -70px;
+  margin-left: -60px;
 `;
 export const Button = styled.button`
   font-size: 0.9rem;

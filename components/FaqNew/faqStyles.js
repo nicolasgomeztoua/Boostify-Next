@@ -8,7 +8,7 @@ export const Wrap = styled.section`
 export const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-left:10vw;
+  margin-left: 10vw;
   grid-column-gap: 30px;
   @media screen and (max-width: 990px) {
     grid-template-columns: 1fr;
@@ -26,7 +26,8 @@ export const TextContainer = styled.div`
     text-align: center;
     justify-self: center;
   }
-  max-height:1100px;
+  max-height: 1100px;
+  margin-bottom: 100px;
 `;
 
 export const TextBlock = styled.div`
@@ -38,7 +39,6 @@ export const TextBlock = styled.div`
 export const Title = styled.h3`
   font-size: 56px;
   padding-bottom: 20px;
-
 `;
 export const TitleSpan = styled.span`
   color: #40e0d0;
@@ -55,7 +55,7 @@ export const ImageContainer = styled.div`
   @media screen and (max-width: 990px) {
     justify-content: center;
   }
-  margin-left:-70px;
+  margin-left: -70px;
 `;
 export const Button = styled.button`
   font-size: 0.9rem;

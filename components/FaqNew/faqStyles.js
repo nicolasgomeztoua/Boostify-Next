@@ -54,3 +54,34 @@ export const ImageContainer = styled.div`
     justify-content: center;
   }
 `;
+export const Button = styled.button`
+  font-size: 0.9rem;
+  background-color: ${(props) =>
+    props.background ? props.background : "#fff"};
+  border: ${(props) => (props.border ? props.border : "solid #056e84 1px")};
+  border-radius: 25px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.7);
+  color: ${(props) => (props.color ? props.color : "#056e84")};
+  cursor: pointer;
+  font-weight: bold;
+  height: auto;
+  line-height: 2.5em;
+  margin: 0;
+  margin-top: 30px;
+  min-height: 30px;
+  min-width: 300px;
+
+  padding: 0.55rem 2rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  transition: all 0.3s ease 0s;
+  &&:hover {
+    background-color: #2ee59d;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+`;

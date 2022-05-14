@@ -7,8 +7,10 @@ import {
   Title,
   TitleSpan,
   Wrap,
+  Button,
 } from "./faqStyles";
 import Image from "next/image";
+import Link from "next/link";
 
 const FaqNew = () => {
   return (
@@ -56,6 +58,19 @@ const FaqNew = () => {
               We have nothing to hide which is why we provide our streaming
               option to see the boosting process for yourself.
             </Paragraph>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Link
+                href={`/rank-boosting${
+                  typeof window !== "undefined" ? window?.location.search : null
+                }`}
+                style={{ textDecoration: "none", color: "inherit" }}
+                passHref
+              >
+                <Button background="#40E0D0" color="#fff">
+                  Get Started!
+                </Button>
+              </Link>
+            </div>
           </TextBlock>
         </TextContainer>
         <ImageContainer>

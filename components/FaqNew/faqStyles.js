@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Wrap = styled.section`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+`;
 export const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -39,10 +44,13 @@ export const TitleSpan = styled.span`
 export const Paragraph = styled.p`
   font-size: 18px;
   font-weight: 100;
-  font-family: Georgia, "Times New Roman", Times, serif;
 `;
 export const ImageContainer = styled.div`
   display: flex;
+
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  @media screen and (max-width: 990px) {
+    justify-content: center;
+  }
 `;

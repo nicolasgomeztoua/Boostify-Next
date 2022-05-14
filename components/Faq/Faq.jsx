@@ -2,6 +2,7 @@ import React from "react";
 import { Parallax } from "react-parallax";
 import styles from "../Home/Home.module.css";
 import styled from "styled-components";
+import { QuestionAnswer } from "styled-icons/material-twotone";
 const FAQ = styled(QuestionAnswer)`
   height: 40px;
   color: turquoise;

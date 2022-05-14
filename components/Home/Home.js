@@ -20,6 +20,7 @@ import Banner from "../Banner/Banner";
 import Stats from "./stats";
 import Reviews from "../Reviews/Reviews";
 import FaqNew from "../FaqNew/FaqNew";
+import Faq from "../Faq/Faq";
 const Verified = styled(VerifiedUser)`
   height: 50px;
 `;
@@ -189,8 +190,9 @@ const Home = () => {
 
       {/* ...................................................................*/}
       <FaqNew />
+      <Faq />
       <WhoAreWe />
-      <WhatIsBoosting />
+
       <WhyUs />
       <OrdersCarousel />
       <Reviews />

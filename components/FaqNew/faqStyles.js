@@ -3,13 +3,15 @@ import styled from "styled-components";
 export const Wrap = styled.section`
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+
+  margin-bottom: 50px;
 `;
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-left: 10vw;
+  grid-template-columns: 2fr 1fr;
   grid-column-gap: 30px;
+  height: min-content;
+  max-width: 80%;
   @media screen and (max-width: 990px) {
     grid-template-columns: 1fr;
     margin-top: -100px;
@@ -20,7 +22,8 @@ export const TextContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   text-align: left;
-  max-width: 80%;
+  align-self:center ;
+  max-height:80%;
   justify-self: flex-end;
   @media screen and (max-width: 990px) {
     max-width: 70%;

@@ -37,7 +37,7 @@ const FaqNew = () => {
           </TextBlock>
           <TextBlock>
             <Title>
-              How will boostify <TitleSpan>Boostify</TitleSpan> boost my
+              How will <TitleSpan>Boostify</TitleSpan> boost my
               account?
             </Title>
             <Paragraph>
@@ -77,8 +77,8 @@ const FaqNew = () => {
         </TextContainer>
         <ImageContainer>
           <Image
-            width={500}
-            height={900}
+            width={580}
+            height={920}
             alt="lifeline"
             src={"/assets/images/LifelineFaq.png"}
           />

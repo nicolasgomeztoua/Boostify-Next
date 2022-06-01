@@ -77,8 +77,8 @@ const FaqNew = () => {
         </TextContainer>
         <ImageContainer>
           <Image
-            width={580}
-            height={920}
+            width={720}
+            height={1290}
             alt="lifeline"
             src={"/assets/images/LifelineFaq.png"}
           />

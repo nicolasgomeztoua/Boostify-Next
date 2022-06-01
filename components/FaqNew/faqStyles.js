@@ -13,6 +13,7 @@ export const Container = styled.div`
   height: min-content;
   max-width: 80%;
   @media screen and (max-width: 990px) {
+    max-width:100%;
     grid-template-columns: 1fr;
     margin-top: -100px;
     margin-left: 0;

@@ -70,9 +70,7 @@ const Sucess = () => {
       }
     }
   }
-  const clearCart = () => {
-    localStorage.removeItem("cart");
-  };
+
   return (
     <>
       <div className={styles["success-container"]}>
@@ -95,12 +93,15 @@ const Sucess = () => {
             We received your purchase request;
             <br /> we&apos;ll be in touch shortly!
             <br />{" "}
-            <Link href="/" passHref>
-              <Button className={styles["example_d"]} onClick={clearCart}>
+            <a href="/" >
+              <Button
+                className={styles["example_d"]}
+                onClick={() => localStorage.cart = [""]}
+              >
                 {" "}
                 Clear cart and go home
               </Button>
-            </Link>
+            </a>
           </p>
         </div>
       </div>

@@ -93,7 +93,7 @@ const Sucess = () => {
             We received your purchase request;
             <br /> we&apos;ll be in touch shortly!
             <br />{" "}
-            <a href="/" >
+            <Link href="/" passHref>
               <Button
                 className={styles["example_d"]}
                 onClick={() => localStorage.cart = [""]}
@@ -101,7 +101,7 @@ const Sucess = () => {
                 {" "}
                 Clear cart and go home
               </Button>
-            </a>
+            </Link>
           </p>
         </div>
       </div>

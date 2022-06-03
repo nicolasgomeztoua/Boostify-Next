@@ -75,8 +75,8 @@ const RankBoostProduct = () => {
   const [disabledDiscount, setDisabledDiscount] = useState(false);
 
   const handleDiscount = () => {
-    if (validPromo === "boostify5") {
-      setTotalMoney(totalMoney - totalMoney * 0.05);
+    if (validPromo === "boostify15") {
+      setTotalMoney(totalMoney - totalMoney * 0.15);
       setDisabledDiscount(true);
       setOpacity(0.4);
     }

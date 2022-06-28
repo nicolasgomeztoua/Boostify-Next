@@ -3,7 +3,7 @@ const walzyEditThis = [
   "SEASON",
   "13",
   "SPLIT",
-  "1",
+  "2",
   "BOOSTS",
   "NOW AVAILAIBLE",
   " ",

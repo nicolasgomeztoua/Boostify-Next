@@ -38,7 +38,7 @@ export default function Index() {
     <>
       <Head>
         <title>
-          Boostify | Season 11 Apex Legends Boosting Services
+          Boostify | Apex Legends Boosting Services
           Playstation/XBox/PC
         </title>
         <meta

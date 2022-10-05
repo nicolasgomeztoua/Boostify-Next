@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Home.module.css";
 import { UserInjured } from "@styled-icons/fa-solid/UserInjured";
-import { AngleDoubleUp } from "@styled-icons/fa-solid/AngleDoubleUp";
+import { ChevronDoubleUp } from "@styled-icons/heroicons-solid/ChevronDoubleUp";
 import { Badge } from "@styled-icons/open-iconic/Badge";
 const WhatIsBoosting = () => {
   return (
@@ -24,9 +24,9 @@ const WhatIsBoosting = () => {
           </p>
         </li>
         <li className={styles["WIB-bullet-dot"]}>
-          <AngleDoubleUp
+          <ChevronDoubleUp
             style={{ height: "50px", color: "#e43403", margin: "auto" }}
-          ></AngleDoubleUp>
+          ></ChevronDoubleUp>
 
           <p style={{ textAlign: "center" }} className={styles["bullet-desc"]}>
             Rank Boost will help you get out of the boring grind and back to

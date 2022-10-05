@@ -5,7 +5,7 @@ const featured = () => {
   return (
     <div className={styles["featured-container"]}>
       <h2
-        className={styles["WhatIsBoosting-title"]}
+        className={`${styles["WhatIsBoosting-title"]} ${styles["featured-title"]}`}
         style={{
           padding: "10px",
           borderRadius: "20px",
@@ -19,12 +19,7 @@ const featured = () => {
       </h2>
       <div className={styles["featured-wrap"]}>
         <div id={styles["featuredbooster"]}>
-          <Image
-            alt="featured booster"
-            height={1080}
-            width={1280}
-            src={featuredbooster}
-          ></Image>{" "}
+          <img alt="featured booster" src={"/assets/images/featured.png"}></img>{" "}
         </div>
         <p className={styles["desc"]}>
           {" "}

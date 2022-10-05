@@ -47,7 +47,6 @@ export default function Index() {
         />
         <meta name="theme-color" content="#008f68" />
       </Head>
-      <Navbar />
       <Home />
       <ToastContainer
         position="top-right"

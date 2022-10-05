@@ -9,7 +9,7 @@ export const Wrap = styled.section`
 export const Container = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-column-gap: 30px;
+  grid-column-gap: 60px;
   height: min-content;
   max-width: 80%;
   @media screen and (max-width: 990px) {
@@ -40,14 +40,14 @@ export const TextBlock = styled.div`
 `;
 
 export const Title = styled.h3`
-  font-size: 56px;
+  font-size: 43px;
   padding-bottom: 20px;
 `;
 export const TitleSpan = styled.span`
   color: #40e0d0;
 `;
 export const Paragraph = styled.p`
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 100;
 `;
 export const ImageContainer = styled.div`

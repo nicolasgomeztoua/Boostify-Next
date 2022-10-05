@@ -17,10 +17,12 @@ import WhyUs from "./WhyUs";
 import Featured from "./Featured";
 import Head from "next/head";
 import Banner from "../Banner/Banner";
-import Stats from "./stats";
 import Reviews from "../Reviews/Reviews";
 import FaqNew from "../FaqNew/FaqNew";
 import Faq from "../Faq/Faq";
+import NewHero from "../NewHero/NewHero";
+import Stats from "../Stats";
+
 const Verified = styled(VerifiedUser)`
   height: 50px;
 `;
@@ -67,8 +69,7 @@ const Home = () => {
     <div>
       <Head>
         <title>
-          Boostify | Apex Legends Boosting Services
-          Playstation/XBox/PC
+          Boostify | Apex Legends Boosting Services Playstation/XBox/PC
         </title>
         <meta
           name="description"
@@ -77,7 +78,7 @@ const Home = () => {
         <meta name="theme-color" content="#008f68" />
       </Head>
 
-      <Parallax
+      {/*       <Parallax
         strength={-200}
         bgImage={horizonImg}
         bgImageAlt="Horizon Header"
@@ -117,12 +118,15 @@ const Home = () => {
             </div>
           </div>
         </div>{" "}
-      </Parallax>
+      </Parallax> */}
+
       {/* ///////////////////////////////////// */}
-      <Stats></Stats>
-      <TrustBadge></TrustBadge>
-      <Banner></Banner>
-      <Featured></Featured>
+      <NewHero homeStyles={styles} />
+      <Stats id="target" />
+
+      <TrustBadge />
+      <Banner />
+      <Featured />
       <div className={styles["Home-intro"]} id={styles["lookingToBoost"]}>
         <h2
           id={styles["Home-subtitle"]}
@@ -181,11 +185,6 @@ const Home = () => {
             </li>
           </ul>
         </div>
-        <h2 className={styles["Home-intro"]} id={styles["outro"]}>
-          {" "}
-          The preferred platform of the top 750 in the EU{" "}
-          <Verified id={styles["verified"]} />{" "}
-        </h2>
       </div>
 
       {/* ...................................................................*/}

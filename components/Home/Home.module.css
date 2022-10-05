@@ -722,7 +722,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 20px;
-  
 }
 .whyUs-grid p {
   font-size: 22.62px;
@@ -785,9 +784,16 @@
     border-bottom: 5px solid turquoise;
   }
 }
+.featured-title {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin-top: 0;
+  margin-bottom: 10px !important;
+}
 .featured-container {
   display: flex;
-  width: 90%;
+  width: 50%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -820,21 +826,23 @@
 }
 .featured-wrap p {
   padding: 25px;
+  padding-top: 10px;
   text-align: center;
-  font-size: 38.23px;
+  font-size: 28.23px;
   color: white;
-  text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black,
-    -0.07em -0.07em black, -0.07em 0.07em black, 0.07em -0.07em black,
-    0.07em 0.07em black;
-  line-height: 55px;
-  letter-spacing: 2px;
+
+  line-height: 35px;
+
   margin: 0;
 }
 
+#featuredbooster {
+  height: 100%;
+}
 @media screen and (max-width: 1270px) {
   .featured-wrap {
     grid-template-columns: 1fr;
-    grid-template-rows: 300px 1fr;
+    width: 100%;
   }
   #featuredbooster {
     margin: auto;
@@ -843,16 +851,6 @@
 @media screen and (orientation: portrait) {
   #featuredbooster {
     height: auto;
-  }
-}
-@media screen and (max-width: 940px) {
-  #featuredbooster {
-    width: 600px;
-  }
-}
-@media screen and (max-width: 750px) {
-  #featuredbooster {
-    width: 80vw;
   }
 }
 @media screen and (max-width: 550px) {

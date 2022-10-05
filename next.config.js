@@ -2,8 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["lh3.googleusercontent.com", "https://cdn.discordapp.com"],
+    domains: [
+      'images.unsplash.com',
+      "lh3.googleusercontent.com",
+      "https://cdn.discordapp.com",
+    ],
   },
 };
-
-module.exports = nextConfig;

@@ -716,7 +716,7 @@ const AcheivementBoostProduct = () => {
             height="50px"
             width="250px"
           ></InputTyped>
-          <div className={styles["button_cont"]} align="center">
+          <div className={styles["button_cont"]}>
             <DiscountButton
               className={styles["example_c"]}
               style={{ opacity: "0.4" }}
@@ -736,7 +736,7 @@ const AcheivementBoostProduct = () => {
             {"$"}
           </TotalMoney>
 
-          <div className={styles["button_cont"]} align="center">
+          <div className={styles["button_cont"]}>
             <Link
               href={`/Cart${
                 typeof window !== "undefined" ? window?.location.search : null

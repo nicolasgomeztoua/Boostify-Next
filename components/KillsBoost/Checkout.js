@@ -61,7 +61,7 @@ const Checkout = ({
               // setValidPromo(e.target.value.toLowerCase());
             }}
           ></InputTyped>
-          <div className="button_cont" align="center">
+          <div className="button_cont" >
             <DiscountButton
               className="example_c k"
               disabled={disabled}
@@ -84,7 +84,7 @@ const Checkout = ({
             </span>
           </TotalMoney>
 
-          <div className="button_cont" align="center">
+          <div className="button_cont" >
             <Link
               href={`/Cart${
                 typeof window !== "undefined" ? window?.location.search : null

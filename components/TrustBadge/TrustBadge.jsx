@@ -2,11 +2,10 @@ import React from "react";
 
 const TrustBadge = () => {
   return (
-    <div style={{ paddingBottom:"30px" }}>
+    <div style={{ paddingBottom: "30px" }}>
       {/* Trust Badge created and verified by https://www.brandpush.co */}{" "}
       <div style={{ width: "100%", marginTop: "10px", all: "unset" }}>
         <style
-          scoped
           dangerouslySetInnerHTML={{
             __html:
               " .brandpush-logo-container-item { height: 100px; position: relative; } .brandpush-vertical-center { margin: 0; position: relative; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); text-align: center; } .brandpush-vertical-center img.brandpush-news-logo{ width: 100%; max-width: 100px; height: auto; margin: 7px 10px; } @media screen and (min-width: 585px) { .brandpush-leaf {opacity:0.2 !important;} .brandpush-logo-container{padding: 0 20px;} } @media screen and (max-width: 584px) { .brandpush-news-logo {max-width:70px !important;} .brandpush-title {font-size: 15px;top: -5px;letter-spacing: 6px;} } @media screen and (max-width: 340px) { .brandpush-title-hr { display:none; !important; } .brandpush-title {font-size:14px;padding:0 !important;} .brandpush-footer {font-size:11px !important;margin:20px 0 25px 0 !important;letter-spacing: 2px !important;} .brandpush-news-logo{max-width:50px !important;} } #brandpush-trust-badge {box-shadow: 0 18px 50px rgb(0 0 0 / 7%); -webkit-transition: box-shadow 0.3s;} ",
@@ -67,7 +66,7 @@ const TrustBadge = () => {
               style={{ textAlign: "center", margin: "0 auto" }}
             >
               <img
-              alt=""
+                alt=""
                 className="brandpush-leaf"
                 style={{
                   position: "absolute",
@@ -204,7 +203,8 @@ const TrustBadge = () => {
                     <a
                       style={{ color: "#717171" }}
                       href="https://www.brandpush.co?utm_source=Client+Referral&utm_medium=Trust+Badge&utm_campaign=Trust+Badge&utm_content=1644529715063"
-                      target="_Blank" rel="noreferrer"
+                      target="_Blank"
+                      rel="noreferrer"
                     >
                       BrandPush.co
                     </a>

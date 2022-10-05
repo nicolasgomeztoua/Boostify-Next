@@ -38,11 +38,11 @@ const OrderTracker = ({ orderObj }) => {
       </h2>{" "}
       <div className={generalStyles["table"]}>
         <h2 className={generalStyles["heading"]}>Order Tracking</h2>
-
+        {console.log(Orders)}
         {Orders.map((order, index) => {
           if (order.titles[0] === "Kills Boost") {
             return (
-              <div className={generalStyles["block"]}>
+              <div className={generalStyles["block"]} key={order._id}>
                 <p className={generalStyles["order-title"]}>{order.titles} </p>
                 <span className={generalStyles["price"]}>
                   ${order.prices}/

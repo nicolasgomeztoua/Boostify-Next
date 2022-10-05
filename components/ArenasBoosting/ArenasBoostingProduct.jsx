@@ -1196,7 +1196,7 @@ const ArenasBoostingProduct = () => {
                   setValidPromo(e.target.value.toLowerCase());
                 }}
               ></InputTyped>
-              <div className="button_cont" align="center">
+              <div className="button_cont" >
                 <DiscountButton
                   className="example_c"
                      disabled={disabledDiscount}
@@ -1220,7 +1220,7 @@ const ArenasBoostingProduct = () => {
                 </span>
               </TotalMoney>
 
-              <div className="button_cont" align="center">
+              <div className="button_cont" >
                 <Link
                   href={`/Cart${
                     typeof window !== "undefined"

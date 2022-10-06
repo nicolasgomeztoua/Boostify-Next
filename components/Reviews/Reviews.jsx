@@ -60,6 +60,7 @@ const Reviews = () => {
     fetchData();
   }, []);
 
+  console.log(reviews)
   return (
     <>
       <Testimonials>

@@ -260,8 +260,7 @@
     background: url("../../public/assets/images/menu.png") no-repeat;
   }
 
-  .menu-btn.active {
-    z-index: 999;
+  .menu-btn-active {
     background: url("../../public/assets/images/close.png") no-repeat;
     background-size: 25px;
     background-position: center;

@@ -8,9 +8,7 @@ import { useCart } from "../../hooks/Cart/CartHandler";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
-const btns = [
-  { name: "btn1" },
-];
+const btns = [{ name: "btn1" }];
 
 const NewHero = () => {
   const { data: session, status } = useSession();
@@ -26,6 +24,7 @@ const NewHero = () => {
   const handleBurgerMenu = () => {
     setMenuBtnActive(!menuBtnActive);
   };
+
   const handleVideoChange = (BtnIndex) => {
     setVideos((current) =>
       current.map((obj, index) => {
@@ -86,7 +85,7 @@ const NewHero = () => {
 
         <div
           className={
-            menuBtnActive ? classes("menu-btn", "active") : classes("menu-btn")
+            menuBtnActive ? classes("menu-btn", "menu-btn-active") : classes("menu-btn")
           }
           onClick={handleBurgerMenu}
         ></div>
@@ -96,6 +95,7 @@ const NewHero = () => {
               ? classes("navigation", "active")
               : classes("navigation")
           }
+          onClick={handleBurgerMenu}
         >
           <div className={classes("navigation-items")}>
             <Link

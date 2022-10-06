@@ -852,6 +852,9 @@
   #featuredbooster {
     height: auto;
   }
+  .featured-container {
+    width: 80%;
+  }
 }
 @media screen and (max-width: 550px) {
   .featured-wrap p {

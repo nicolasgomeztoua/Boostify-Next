@@ -37,14 +37,17 @@ export default function Stats() {
                   <dt className="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">
                     Orders Completed:
                   </dt>
-                  <dd className="order-1 text-5xl font-bold tracking-tight "style={{color:"turquoise"}}>
+                  <dd
+                    className="order-1 text-5xl font-bold tracking-tight "
+                    style={{ color: "turquoise" }}
+                  >
                     {" "}
                     <CountUp
                       end={ordersCompleted.toFixed(0)}
                       style={{
                         fontSize: 43.96,
                       }}
-                      duration={9}
+                      duration={5}
                     />
                   </dd>
                 </div>
@@ -52,13 +55,16 @@ export default function Stats() {
                   <dt className="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">
                     Orders Queued
                   </dt>
-                  <dd className="order-1 text-5xl font-bold tracking-tight "style={{color:"turquoise"}}>
+                  <dd
+                    className="order-1 text-5xl font-bold tracking-tight "
+                    style={{ color: "turquoise" }}
+                  >
                     <CountUp
                       end={7}
                       style={{
                         fontSize: 43.96,
                       }}
-                      duration={10}
+                      duration={5}
                       formatValue={(n) => n.toFixed(0)}
                       frameStyle={(percentage) =>
                         percentage > 20 && percentage < 80
@@ -72,13 +78,16 @@ export default function Stats() {
                   <dt className="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">
                     Remaining split
                   </dt>
-                  <dd className="order-1 text-5xl font-bold tracking-tight "style={{color:"turquoise"}}>
+                  <dd
+                    className="order-1 text-5xl font-bold tracking-tight "
+                    style={{ color: "turquoise" }}
+                  >
                     <CountUp
                       end={d}
                       style={{
                         fontSize: 43.96,
                       }}
-                      duration={10}
+                      duration={5}
                       formatValue={(n) => n.toFixed(0)}
                       frameStyle={(percentage) =>
                         percentage > 20 && percentage < 80

@@ -22,6 +22,9 @@ import FaqNew from "../FaqNew/FaqNew";
 import Faq from "../Faq/Faq";
 import NewHero from "../NewHero/NewHero";
 import Stats from "../Stats";
+import HomeIntro from "../HomeIntro";
+import FaqTailwind from "../FaqTailwind";
+import ReviewsNew from "../ReviewsNew";
 
 const Verified = styled(VerifiedUser)`
   height: 50px;
@@ -127,74 +130,18 @@ const Home = () => {
       <TrustBadge />
       <Banner />
       <Featured />
-      <div className={styles["Home-intro"]} id={styles["lookingToBoost"]}>
-        <h2
-          id={styles["Home-subtitle"]}
-          style={{ color: "black", textShadow: "none" }}
-        >
-          {" "}
-          Looking to boost your account to the next echelon?{" "}
-        </h2>
-        <div className={styles["icons"]}>
-          <ul>
-            <li className={styles["icon-section"]}>
-              <span className={styles["desc"]}>
-                We have a strong link with the predator community, so we are
-                their preferred platform as known members of the ecosystem. We
-                can ensure service from the best.
-              </span>
-              <div className={styles["title-icon"]}>
-                <p>The Very Very Very Strongest</p>
 
-                <span>
-                  <Controller className={styles["icon"]} />
-                </span>
-              </div>
-            </li>
-          </ul>
-          <ul>
-            <li className={styles["icon-section"]}>
-              <span className={styles["desc"]}>
-                Customer support is here for you. if you have any inquiries or
-                doubts about the process please feel free to leave us a message
-                or an email through our Contact Us page.
-              </span>
-              <div className={styles["title-icon"]}>
-                <p>Client support 24/7</p>
-
-                <span>
-                  <CSupport className={styles["icon"]} />
-                </span>
-              </div>
-            </li>
-          </ul>
-          <ul>
-            <li className={styles["icon-section"]}>
-              <span className={styles["desc"]}>
-                We take the security of our customers very seriously. Ensuring
-                we precautiously perform the task for the quickest, most
-                hassle-free experience we can deliver; Trust is our asset.{" "}
-              </span>
-              <div className={styles["title-icon"]}>
-                <p>Security is our #1 concern</p>
-
-                <span>
-                  <Saftey className={styles["icon"]} />
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <HomeIntro />
 
       {/* ...................................................................*/}
       <FaqNew />
-      <Faq />
+      <FaqTailwind />
       <WhoAreWe />
 
       <WhyUs />
       <OrdersCarousel />
-      <Reviews />
+      <ReviewsNew />
+      <Reviews></Reviews>
     </div>
   );
 };

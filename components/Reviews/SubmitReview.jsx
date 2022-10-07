@@ -103,7 +103,7 @@ const SubmitReview = () => {
           <h3 className={auth["login-screen__title"]}>Leave Us A Review!</h3>
 
           <div className={auth["form-group"]}>
-            <label htmlFor="name">Name (optional)</label>
+            <label htmlFor="name">Name</label>
             <input
               type="text"
               id="name"

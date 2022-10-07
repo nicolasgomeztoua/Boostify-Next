@@ -141,7 +141,6 @@ const Home = () => {
       <WhyUs />
       <OrdersCarousel />
       <ReviewsNew />
-      <Reviews></Reviews>
     </div>
   );
 };

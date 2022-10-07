@@ -108,8 +108,9 @@
   height: auto;
   min-width: 300px;
   max-width: 500px;
-  margin:20px;
+  margin: 20px;
 }
+
 .stars-rating {
   display: flex;
   justify-content: center;

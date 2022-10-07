@@ -1,40 +1,20 @@
 import { StarIcon } from "@heroicons/react/20/solid";
 import axios from "axios";
-
+import { Rating } from "@material-ui/lab";
 import { useState, useEffect } from "react";
-
-const reviews = {
-  average: 4,
-  totalCount: 1624,
-  counts: [
-    { rating: 5, count: 1019 },
-    { rating: 4, count: 162 },
-    { rating: 3, count: 97 },
-    { rating: 2, count: 199 },
-    { rating: 1, count: 147 },
-  ],
-  featured: [
-    {
-      id: 1,
-      rating: 5,
-      content: `
-        <p>This is the bag of my dreams. I took it on my last vacation and was able to fit an absurd amount of snacks for the many long and hungry flights.</p>
-      `,
-      author: "Emily Selman",
-      avatarSrc:
-        "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80",
-    },
-    // More reviews...
-  ],
-};
-
+import SeeMore from "../SeeMore";
+import { PlusIcon } from "@heroicons/react/20/solid";
+import { MinusIcon } from "@heroicons/react/20/solid";
+import animations from "./animations.module.css";
+import SubmitReview from "../Reviews/SubmitReview";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function ReviewsNew() {
-  const [reviewss, setReviews] = useState([]);
-
+  const [reviews, setReviews] = useState([]);
+  const [reviewsNum, setReviewsNum] = useState(3);
+  const [writeReview, setWriteReview] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       const config = {
@@ -58,13 +38,31 @@ export default function ReviewsNew() {
   }, []);
 
   const reviewsAverage = () => {
-    let average;
-    for (let i = 0; i < reviewss.length; i++) {
-      console.log(reviewss[i].rating)
-      average += reviewss[i].rating
+    let total = 0;
+    let i = 0;
+    reviews.forEach((review, index) => {
+      i++;
+      total += review.rating;
+    });
+    return [(total / i).toFixed(2)];
+  };
+
+  const reviewsCount = () => {
+    let reviewsArr = {};
+    reviews.forEach((review, index) => {
+      let currentScore = reviewsArr[review.rating];
+      if (!currentScore) {
+        reviewsArr[review.rating] = 1;
+      } else {
+        reviewsArr[review.rating] += 1;
+      }
+    });
+    let count = [];
+    for (const score in reviewsArr) {
+      count.push({ rating: Number(score), count: reviewsArr[score] });
     }
-    console.log(average / reviewss.length)
-    return average / reviewss.length;
+
+    return count;
   };
 
   return (
@@ -91,10 +89,10 @@ export default function ReviewsNew() {
                   />
                 ))}
               </div>
-              <p className="sr-only">{reviews.average} out of 5 stars</p>
+              <p className="sr-only">{reviewsAverage()} out of 5 stars</p>
             </div>
             <p className="ml-2 text-sm text-gray-900">
-              Based on {reviews.totalCount} reviews
+              Based on {reviews.length} reviews
             </p>
           </div>
 
@@ -102,10 +100,10 @@ export default function ReviewsNew() {
             <h3 className="sr-only">Review data</h3>
 
             <dl className="space-y-3">
-              {reviews.counts.map((count) => (
+              {reviewsCount().map((count) => (
                 <div key={count.rating} className="flex items-center text-sm">
                   <dt className="flex flex-1 items-center">
-                    <p className="w-3 font-medium text-gray-900">
+                    <p className="w-3 font-medium text-gray-900 mr-2">
                       {count.rating}
                       <span className="sr-only"> star reviews</span>
                     </p>
@@ -127,7 +125,7 @@ export default function ReviewsNew() {
                           <div
                             className="absolute inset-y-0 rounded-full border border-yellow-400 bg-yellow-400"
                             style={{
-                              width: `calc(${count.count} / ${reviews.totalCount} * 100%)`,
+                              width: `calc(${count.count} / ${reviews.length} * 100%)`,
                             }}
                           />
                         ) : null}
@@ -135,7 +133,7 @@ export default function ReviewsNew() {
                     </div>
                   </dt>
                   <dd className="ml-3 w-10 text-right text-sm tabular-nums text-gray-900">
-                    {Math.round((count.count / reviews.totalCount) * 100)}%
+                    {Math.round((count.count / reviews.length) * 100)}%
                   </dd>
                 </div>
               ))}
@@ -147,16 +145,19 @@ export default function ReviewsNew() {
               Share your thoughts
             </h3>
             <p className="mt-1 text-sm text-gray-600">
-              If you’ve used this product, share your thoughts with other
+              If you’ve used our services, please share your thoughts with other
               customers
             </p>
-
-            <a
-              href="#"
-              className="mt-6 inline-flex w-full items-center justify-center rounded-md border border-gray-300 bg-white py-2 px-8 text-sm font-medium text-gray-900 hover:bg-gray-50 sm:w-auto lg:w-full"
-            >
-              Write a review
-            </a>
+            {writeReview ? (
+              <SubmitReview className={animations["slideDown"]} />
+            ) : (
+              <p
+                onClick={() => setWriteReview(true)}
+                className="mt-6 inline-flex w-full items-center justify-center rounded-md border border-gray-300 bg-white py-2 px-8 text-sm font-medium text-gray-900 hover:bg-gray-50 sm:w-auto lg:w-full"
+              >
+                Write a review
+              </p>
+            )}
           </div>
         </div>
 
@@ -165,31 +166,29 @@ export default function ReviewsNew() {
 
           <div className="flow-root">
             <div className="-my-12 divide-y divide-gray-200">
-              {reviews.featured.map((review) => (
-                <div key={review.id} className="py-12">
+              {reviews.slice(0, reviewsNum).map((review, index) => (
+                <div
+                  key={review.id}
+                  className={classNames("py-12", animations["slideDown"])}
+                  style={{ animationDuration: `${index / 10 + 1}` }}
+                >
                   <div className="flex items-center">
                     <img
-                      src={review.avatarSrc}
-                      alt={`${review.author}.`}
+                      src={review.userImg}
+                      alt={`${review._id}.`}
                       className="h-12 w-12 rounded-full"
                     />
                     <div className="ml-4">
                       <h4 className="text-sm font-bold text-gray-900">
-                        {review.author}
+                        {review.name}
                       </h4>
                       <div className="mt-1 flex items-center">
-                        {[0, 1, 2, 3, 4].map((rating) => (
-                          <StarIcon
-                            key={rating}
-                            className={classNames(
-                              review.rating > rating
-                                ? "text-yellow-400"
-                                : "text-gray-300",
-                              "h-5 w-5 flex-shrink-0"
-                            )}
-                            aria-hidden="true"
-                          />
-                        ))}
+                        <Rating
+                          name="hover-feedback"
+                          value={review.rating}
+                          precision={0.5}
+                          readOnly={true}
+                        />
                       </div>
                       <p className="sr-only">{review.rating} out of 5 stars</p>
                     </div>
@@ -197,12 +196,29 @@ export default function ReviewsNew() {
 
                   <div
                     className="mt-4 space-y-6 text-base italic text-gray-600"
-                    dangerouslySetInnerHTML={{ __html: review.content }}
+                    dangerouslySetInnerHTML={{ __html: review.review }}
                   />
                 </div>
               ))}
             </div>
           </div>
+          {reviewsNum < reviews.length ? (
+            <SeeMore
+              Icon={PlusIcon}
+              text={"More"}
+              clickFunc={() => {
+                setReviewsNum(reviewsNum + 3);
+              }}
+            />
+          ) : (
+            <SeeMore
+              Icon={MinusIcon}
+              text={"Less"}
+              clickFunc={() => {
+                setReviewsNum(3);
+              }}
+            />
+          )}
         </div>
       </div>
     </div>

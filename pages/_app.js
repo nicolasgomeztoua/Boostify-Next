@@ -13,9 +13,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { useCallback, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { SessionProvider } from "next-auth/react";
-import 'bootstrap/dist/css/bootstrap.css'
-
-
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   useEffect(() => {

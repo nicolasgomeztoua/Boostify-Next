@@ -30,7 +30,6 @@ const SubmitReview = () => {
   const [userImg, setUserImage] = useState("");
   const [name, setName] = useState();
   const [review, setReview] = useState("");
-  const [main, setMain] = useState();
 
   const dateFormat = {
     year: "numeric",
@@ -47,7 +46,6 @@ const SubmitReview = () => {
   useEffect(() => {
     if (session) {
       setUserImage(session.user.image);
-
     } else {
       setUserImage("/assets/images/user.png");
     }
@@ -67,33 +65,15 @@ const SubmitReview = () => {
     try {
       await axios.post(
         "https://secret-cove-64633.herokuapp.com/api/auth/reviews",
-        { name, review, rating, main, dateCreated, userImg },
+        { name, review, rating, dateCreated, userImg },
         config
       );
+      notify();
     } catch (error) {
       console.error(error);
     }
   };
 
-  const options = [
-    { value: "Wraith" },
-    { value: "Bloodhound" },
-    { value: "Horizon" },
-    { value: "Rampart" },
-    { value: "Fuse" },
-    { value: "Octane" },
-    { value: "Wattson" },
-    { value: "Caustic" },
-    { value: "Gibraltar" },
-    { value: "Loba" },
-    { value: "Revenant" },
-    { value: "Pathfinder" },
-    { value: "Lifeline" },
-    { value: "Crypto" },
-    { value: "Mirage" },
-    { value: "Valk" },
-    { value: "Seer" },
-  ];
   return (
     <>
       <ToastContainer
@@ -112,7 +92,6 @@ const SubmitReview = () => {
           onSubmit={reviewHandler}
           className={auth["login-screen__form"]}
           style={{
-            backgroundColor: "#333",
             position: "relative",
             width: "100%",
             margin: "0 auto",
@@ -121,17 +100,10 @@ const SubmitReview = () => {
             height: "530px",
           }}
         >
-          <h3
-            className={auth["login-screen__title"]}
-            style={{ color: "white" }}
-          >
-            Leave Us A Review!
-          </h3>
+          <h3 className={auth["login-screen__title"]}>Leave Us A Review!</h3>
 
           <div className={auth["form-group"]}>
-            <label htmlFor="name" style={{ color: "white" }}>
-              Name (optional)
-            </label>
+            <label htmlFor="name">Name (optional)</label>
             <input
               type="text"
               id="name"
@@ -141,39 +113,9 @@ const SubmitReview = () => {
                 setName(e.target.value);
               }}
             />
-            <div>
-              <label
-                className={styles["select"]}
-                htmlFor="name"
-                style={{ color: "white" }}
-              >
-                Select Your Main
-                <select
-                  id="slct"
-                  required="required"
-                  onChange={(e) => {
-                    setMain(e.target.value);
-                  }}
-                >
-                  {options.map((Items, index) => {
-                    return (
-                      <option
-                        key={Items.value}
-                        value={Items.value}
-                        defaultValue="Select A Legend"
-                      >
-                        {Items.value}
-                      </option>
-                    );
-                  })}
-                </select>
-              </label>
-            </div>
           </div>
           <div className={auth["form-group"]}>
-            <label htmlFor="text" style={{ color: "white" }}>
-              Your review:
-            </label>
+            <label htmlFor="text">Your review:</label>
             <textarea
               type="text"
               required
@@ -199,7 +141,6 @@ const SubmitReview = () => {
           <button
             type="submit"
             className={`${auth["form-btn"]} ${auth["form-btn-primary"]}`}
-            onClick={notify}
             disabled={review.length === 0 ? true : false}
           >
             Submit Review

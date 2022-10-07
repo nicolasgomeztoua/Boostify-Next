@@ -61,7 +61,7 @@ export default function ReviewsNew() {
     for (const score in reviewsArr) {
       count.push({ rating: Number(score), count: reviewsArr[score] });
     }
-
+    count.sort((a, b) => (a.rating > b.rating ? -1 : 1))
     return count;
   };
 

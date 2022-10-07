@@ -6,6 +6,15 @@ import Gamer from "../../public/assets/images/gamer.jpg";
 import { VpnLock } from "@styled-icons/material-twotone/VpnLock";
 import Image from "next/image";
 import styles from "./Home.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUsers,
+  faBolt,
+  faUserSecret,
+} from "@fortawesome/free-solid-svg-icons";
+
+
+
 const WhyUs = () => {
   const [our, setOur] = useState("checked");
   const [privacy, setPrivacy] = useState(false);
@@ -73,30 +82,27 @@ const WhyUs = () => {
         <ul>
           <li title="Our Boosters">
             <label htmlFor="tab1" role="button">
-              <i
-                className={styles["fas fa-users"]}
+              <FontAwesomeIcon
+                icon={faUsers}
                 style={{ padding: "10px" }}
-              ></i>
+              />
               <br />
               <span>Our Boosters</span>
             </label>
           </li>
           <li title="Privacy">
             <label htmlFor="tab2" role="button">
-              <i
-                className={styles["fas fa-user-secret"]}
+              <FontAwesomeIcon
+                icon={faUserSecret}
                 style={{ padding: "10px" }}
-              ></i>
+              />
               <br />
               <span>Privacy</span>
             </label>
           </li>
           <li title="Delivery">
             <label htmlFor="tab3" role="button">
-              <i
-                className={styles["fas fa-bolt"]}
-                style={{ padding: "10px" }}
-              ></i>
+              <FontAwesomeIcon icon={faBolt} style={{ padding: "10px" }} />
               <br />
               <span>Delivery</span>
             </label>
@@ -129,7 +135,7 @@ const WhyUs = () => {
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <Image
                   height={300}
-                  width={300}
+                  width={350}
                   src={pred}
                   alt="predator"
                 ></Image>

@@ -360,7 +360,7 @@
   text-align: center;
   padding: 10px;
 }
-.whoAreWe-wrap{
+.whoAreWe-wrap {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -370,7 +370,6 @@
   color: black;
   width: 80%;
   text-align: center;
-  
 }
 
 @media screen and (max-width: 700px) {
@@ -378,7 +377,7 @@
     width: 90vw;
     border-radius: 40px;
   }
-  
+
   #WWA-desc {
     margin: 10px;
     width: 90%;
@@ -739,6 +738,12 @@
   display: flex;
   align-self: center;
   text-align: center;
+}
+@media screen and (orientation: portrait) {
+  .whyUs-grid p {
+    font-size: 15.62px;
+    margin-bottom: 15px;
+  }
 }
 .whyUs-grid img {
   display: flex;

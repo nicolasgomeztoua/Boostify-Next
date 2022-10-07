@@ -13,6 +13,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { useCallback, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { SessionProvider } from "next-auth/react";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   useEffect(() => {

@@ -85,7 +85,14 @@ const NewHero = () => {
 
         <div
           className={
-            menuBtnActive ? classes("menu-btn", "menu-btn-active") : classes("menu-btn")
+            menuBtnActive
+              ? classes("menu-btn", "menu-btn-active")
+              : classes("menu-btn")
+          }
+          style={
+            !menuBtnActive
+              ? { background: `url("/assets/images/menu.png") no-repeat` }
+              : { background: `url("/assets/images/close.png") no-repeat` }
           }
           onClick={handleBurgerMenu}
         ></div>

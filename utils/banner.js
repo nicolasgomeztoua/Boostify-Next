@@ -5,7 +5,7 @@ const walzyEditThis = [
   "SPLIT",
   "2",
   "BOOSTS",
-  "NOW AVAILAIBLE",
+  "NOW AVAILABLE",
   " ",
 ];
 

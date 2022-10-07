@@ -15,7 +15,7 @@ const features = [
   {
     name: "The Very Very Very Strongest",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+      "We have a strong link with the predator community, so we are their preferred platform as known members of the ecosystem. We can ensure service from the best.",
     icon: GameController,
   },
   {
@@ -36,14 +36,11 @@ export default function HomeIntro() {
   return (
     <div className="relative bg-white py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="text-lg font-semibold" style={{color:"turquoise"}}>Our Pride And Joy</h2>
+        <h2 className="text-lg font-semibold" style={{ color: "turquoise" }}>
+          Our Pride And Joy
+        </h2>
         <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-        Looking to boost your account to the next echelon?
-        </p>
-        <p className="mx-auto mt-5 max-w-prose text-xl text-gray-500">
-        We have a strong link with the predator community, so we are
-                their preferred platform as known members of the ecosystem. We
-                can ensure service from the best.
+          Looking to boost your account to the next echelon?
         </p>
         <div className="mt-12">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">

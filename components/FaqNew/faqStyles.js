@@ -1,33 +1,20 @@
 import styled from "styled-components";
 
-export const Wrap = styled.section`
-  display: flex;
-  justify-content: center;
-
-  margin-bottom: 50px;
-`;
+export const Wrap = styled.section``;
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-column-gap: 60px;
-  height: min-content;
-  max-width: 80%;
-  @media screen and (max-width: 990px) {
-    max-width:100%;
-    grid-template-columns: 1fr;
-    margin-top: -100px;
-    margin-left: 0;
-  }
+  display: flex;
+  flex-direction: column;
 `;
 export const TextContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   text-align: left;
-  align-self:center ;
-  max-height:80%;
-  justify-self: flex-end;
+  align-self: center;
+  max-height: 80%;
+ 
+  margin: 0 auto;
   @media screen and (max-width: 990px) {
-    max-width: 70%;
+    max-width: 81%;
     text-align: center;
     justify-self: center;
   }
@@ -55,9 +42,10 @@ export const ImageContainer = styled.div`
 
   align-items: center;
   justify-content: flex-start;
-  @media screen and (max-width: 990px) {
-    justify-content: center;
-    margin-left: 0;
+  @media (orientation: portrait) {
+    img {
+      display: none;
+    }
   }
   margin-left: -60px;
 `;

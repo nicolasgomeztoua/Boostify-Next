@@ -257,11 +257,9 @@
     height: 40px;
     cursor: pointer;
     transition: 0.3s ease;
-    background: url("../../public/assets/images/menu.png") no-repeat;
   }
 
   .menu-btn-active {
-    background: url("../../public/assets/images/close.png") no-repeat;
     background-size: 25px;
     background-position: center;
     transition: 0.3s ease;

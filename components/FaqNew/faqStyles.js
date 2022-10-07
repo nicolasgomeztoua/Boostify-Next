@@ -1,20 +1,32 @@
 import styled from "styled-components";
 
-export const Wrap = styled.section``;
-export const Container = styled.div`
+export const Wrap = styled.section`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 50px;
+`;
+
+export const Container = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 60px;
+  height: min-content;
+  max-width: 80%;
+  @media (orientation: portrait) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 export const TextContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-  text-align: left;
+  text-align: center;
   align-self: center;
   max-height: 80%;
- 
+  width: 81%;
   margin: 0 auto;
-  @media screen and (max-width: 990px) {
-    max-width: 81%;
+  @media screen and (orientation: portrait) {
+    width: 100%;
     text-align: center;
     justify-self: center;
   }

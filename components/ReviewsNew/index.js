@@ -28,7 +28,7 @@ export default function ReviewsNew() {
           "https://secret-cove-64633.herokuapp.com/api/auth/get-reviews",
           config
         );
-        setReviews(data.reviews);
+        setReviews(data.reviews.reverse());
       } catch (error) {
         console.log(error);
       }

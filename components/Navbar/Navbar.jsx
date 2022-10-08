@@ -1,93 +1,23 @@
-import React, { useState, useEffect } from "react";
-
+import { Fragment, useEffect, useState } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import styles from "./Navbar.module.css";
-import Dropdown from "../Dropdown/Dropdown";
-import { useRouter } from "next/router";
 import Image from "next/image";
-import { ShoppingCart } from "@styled-icons/evaicons-solid/ShoppingCart";
 import { useCart } from "../../hooks/Cart/CartHandler";
-import logo from "../../public/assets/images/logo.png";
-import { LogOut } from "@styled-icons/boxicons-regular/LogOut";
-import { Bars } from "@styled-icons/fa-solid/Bars";
-import { Cross } from "@styled-icons/icomoon/Cross";
-import styled, { css } from "styled-components";
 import { signOut, useSession } from "next-auth/react";
-const NavMenu = css`
-  color: white;
-  height: 30px;
-`;
-const CrossMenu = styled(Cross)`
-  ${NavMenu}
-`;
-const BurgerMenu = styled(Bars)`
-  ${NavMenu}
-`;
-const Button = styled.button`
-  padding: 8px 20px;
-  border-radius: 4px;
-  outline: none;
-  border: none;
-  font-size: 18px;
-  color: #fff;
-  cursor: pointer;
-  background-color: #e43403;
-  &:hover {
-    padding: 6px 12px;
-    transition: all 0.3s ease-out;
-    background-color: #e43403;
-    color: #fff;
-    border-radius: 4px;
-    border: 2px solid #e43403;
-  }
-`;
-const NextLink = styled.a`
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  width: min-content;
-  &:hover {
-    background-color: #1888ff;
-    border-radius: 4px;
-    transition: all 0.2s ease-out;
-  }
-`;
-const Navbar = () => {
-  let history = useRouter();
-  const cartItems = useCart();
-  const [click, setClick] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [displayCheckBox, setDisplayCheckBox] = useState("none");
-  const [displayButton, setDisplayButton] = useState("flex");
+import { ShoppingCart } from "@styled-icons/evaicons-solid/ShoppingCart";
+import styles from "./Navbar.module.css";
+import { useRouter } from "next/router";
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+export default function NavBar() {
   const { data: session, status } = useSession();
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-
-  useEffect(() => {
-    if (localStorage.getItem("authToken") || session?.user?.name) {
-      setLoggedIn(true);
-    } else if (!localStorage.getItem("authToken")) {
-      setLoggedIn(false);
-    }
-  }, [session?.user?.name]);
-
-  const onMouseEnter = () => {
-    if (window?.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(true);
-    }
-  };
-
-  const onMouseLeave = () => {
-    if (window?.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(false);
-    }
-  };
-
+  const cartItems = useCart();
+  const [loggedIn, setLoggedIn] = useState(false);
+  const history = useRouter();
   const logoutHandler = () => {
     signOut();
     localStorage.removeItem("authToken");
@@ -101,142 +31,294 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    if (loggedIn === true) {
-      setDisplayCheckBox("flex");
-      setDisplayButton("none");
+    if (localStorage.getItem("authToken") || session?.user?.name) {
+      setLoggedIn(true);
+    } else if (!localStorage.getItem("authToken")) {
+      setLoggedIn(false);
     }
-    if (loggedIn === false) {
-      setDisplayCheckBox("none");
-      setDisplayButton("flex");
-    }
-  }, [loggedIn]);
+  }, [session?.user?.name]);
 
   return (
-    <>
-      <nav className={styles.navbar}>
-        <Link
-          passHref
-          href={`/${
-            typeof window !== "undefined" ? window?.location.search : null
-          }`}
-          onClick={closeMobileMenu}
-        >
-          <div className={styles.navbar_logo}>
-            <Image src={logo} alt="logo" width={60} height={60} /> Boostify
-          </div>
-        </Link>
+    <Disclosure as="nav" className="bg-white shadow">
+      {({ open }) => (
+        <>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex h-16 justify-between">
+              <div className="flex">
+                <div className="flex flex-shrink-0 items-center">
+                  <Link
+                    passHref
+                    href={`/${
+                      typeof window !== "undefined"
+                        ? window?.location.search
+                        : null
+                    }`}
+                  >
+                    <Image
+                      src={"/assets/images/logo.png"}
+                      alt="logo"
+                      width={60}
+                      height={60}
+                    />
+                  </Link>
+                </div>
+                <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                  {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
+                  <Link
+                    passHref
+                    href={`/${
+                      typeof window !== "undefined"
+                        ? window?.location.search
+                        : null
+                    }`}
+                  >
+                    <a className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
+                      Home
+                    </a>
+                  </Link>
+                  <Link
+                    passHref
+                    href={`/Services${
+                      typeof window !== "undefined"
+                        ? window?.location.search
+                        : null
+                    }`}
+                  >
+                    <a className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
+                      Services
+                    </a>
+                  </Link>
+                  <Link
+                    href={`/ContactUs${
+                      typeof window !== "undefined"
+                        ? window?.location.search
+                        : null
+                    }`}
+                  >
+                    <a className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
+                      Contact
+                    </a>
+                  </Link>
+                </div>
+              </div>
+              <div className="hidden sm:ml-6 sm:flex sm:items-center">
+                <button
+                  type="button"
+                  className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                >
+                  <span className="sr-only">View notifications</span>
+                  <Link
+                    href={`/Cart${
+                      typeof window !== "undefined"
+                        ? window?.location.search
+                        : null
+                    }`}
+                    passHref
+                  >
+                    <ShoppingCart className={styles.cart_icon}></ShoppingCart>
+                  </Link>
+                  <span className="sr-only">View cart</span>
+                  <span className={styles.cart_icon_number}>
+                    {cartItems?.length}
+                  </span>
+                </button>
+                {/* Profile dropdown */}
+                <Menu as="div" className="relative ml-3">
+                  <div>
+                    <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                      <span className="sr-only">Open user menu</span>
+                      <img
+                        className="h-8 w-8 rounded-full"
+                        src="/assets/images/user.png"
+                        alt=""
+                      />
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-200"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            passHref
+                            href={`/Profile${
+                              typeof window !== "undefined"
+                                ? window?.location.search
+                                : null
+                            }`}
+                          >
+                            <a
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              Your Profile
+                            </a>
+                          </Link>
+                        )}
+                      </Menu.Item>
 
-        <div className={styles.menu_icon} onClick={handleClick}>
-          {click === false && <BurgerMenu></BurgerMenu>}
-          {click === true && <CrossMenu></CrossMenu>}
-        </div>
-        <ul
-          className={
-            click ? `${styles.nav_menu} ${styles.active}` : styles.nav_menu
-          }
-        >
-          <li className={styles.nav_item}>
-            <Link
-              passHref
-              href={`/${
-                typeof window !== "undefined" ? window?.location.search : null
-              }`}
-              onClick={closeMobileMenu}
-            >
-              <NextLink className={styles.nav_links}>Home</NextLink>
-            </Link>
-          </li>
-          <li className={styles.nav_item}>
-            <Link
-              passHref
-              href={`/Profile${
-                typeof window !== "undefined" ? window?.location.search : null
-              }`}
-              onClick={closeMobileMenu}
-            >
-              <NextLink className={styles.nav_links}>Profile</NextLink>
-            </Link>{" "}
-          </li>
-          <li
-            className={styles.nav_item}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-          >
-            <Link
-              passHref
-              href={"/rank-boosting"}
-              className={styles.nav_links}
-              onClick={closeMobileMenu}
-            >
-              <NextLink>
-                {" "}
-                Services{" "}
-                <i className={`${styles.fas}${styles.fa_caret_down}`} />
-              </NextLink>
-            </Link>
-            {dropdown && <Dropdown />}
-          </li>
-
-          <li className={styles.nav_item}>
-            <Link passHref href={"/ContactUs"} onClick={closeMobileMenu}>
-              <NextLink style={{ width: "120px" }} className={styles.nav_links}>
-                Contact Us
-              </NextLink>
-            </Link>{" "}
-          </li>
-
-          <li
-            onClick={logoutHandler}
-            className={styles.nav_item}
-            style={{
-              display: displayCheckBox,
-              flexDirection: "column",
-              justifyContent: "flex_center",
-              textAlign: "center",
-              cursor: "pointer",
-            }}
-          >
-            <NextLink>
-              <p
-                style={{ width: "90px", marginBottom: "0" }}
-                className={`${styles.nav_links}${styles.logout}`}
-              >
-                Logout <LogOut style={{ height: "27px" }}></LogOut>
-              </p>{" "}
-            </NextLink>
-          </li>
-          <Link
-            passHref
-            href={`/Authentication/Login${
-              typeof window !== "undefined" ? window?.location.search : null
-            }`}
-            style={{ textDecoration: "none" }}
-          >
-            <div className={styles.nav_item} style={{ display: displayButton }}>
-              <Button className={styles.nav_links}>Log In</Button>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
+                          >
+                            {loggedIn ? (
+                              <a onClick={() => logoutHandler()}>Logout</a>
+                            ) : (
+                              <Link
+                                passHref
+                                href={`/Authentication/Login${
+                                  typeof window !== "undefined"
+                                    ? window?.location.search
+                                    : null
+                                }`}
+                              >
+                                Login
+                              </Link>
+                            )}
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
+              </div>
+              <div className="-mr-2 flex items-center sm:hidden">
+                {/* Mobile menu button */}
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <span className="sr-only">Open main menu</span>
+                  {open ? (
+                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                  ) : (
+                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                  )}
+                </Disclosure.Button>
+              </div>
             </div>
-          </Link>
-          <li className={styles.nav_item}>
-            <Link
-              passHref
-              href={`/Cart${
-                typeof window !== "undefined" ? window?.location.search : null
-              }`}
-              style={{ textDecoration: "none" }}
-            >
-              <a>
-                {" "}
-                <ShoppingCart className={styles.cart_icon}></ShoppingCart>{" "}
+          </div>
+
+          <Disclosure.Panel className="sm:hidden">
+            <div className="space-y-1 pt-2 pb-3">
+              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
+              <Disclosure.Button
+                as="a"
+                className="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700"
+              >
+                <Link
+                  passHref
+                  href={`/${
+                    typeof window !== "undefined"
+                      ? window?.location.search
+                      : null
+                  }`}
+                >
+                  Home
+                </Link>
+              </Disclosure.Button>
+              <Disclosure.Button
+                as="a"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+              >
+                <Link
+                  passHref
+                  href={`/ContactUs${
+                    typeof window !== "undefined"
+                      ? window?.location.search
+                      : null
+                  }`}
+                >
+                  Contact Us
+                </Link>
+              </Disclosure.Button>
+              <Disclosure.Button
+                as="a"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+              >
+                <Link
+                  passHref
+                  href={`/Services${
+                    typeof window !== "undefined"
+                      ? window?.location.search
+                      : null
+                  }`}
+                >
+                  Services
+                </Link>
+              </Disclosure.Button>
+            </div>
+            <div className="border-t border-gray-200 pt-4 pb-3">
+              <a
+                class="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
+                data-headlessui-state="open"
+              >
+                <Link
+                  href={`/Cart${
+                    typeof window !== "undefined"
+                      ? window?.location.search
+                      : null
+                  }`}
+                  passHref
+                >
+                  <ShoppingCart className={styles.cart_icon}></ShoppingCart>
+                </Link>
+                <span className="sr-only">View cart</span>
                 <span className={styles.cart_icon_number}>
                   {cartItems?.length}
                 </span>
               </a>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </>
-  );
-};
+              <div className="mt-3 space-y-1">
+                <Disclosure.Button
+                  as="a"
+                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
+                >
+                  <Link
+                    passHref
+                    href={`/Profile${
+                      typeof window !== "undefined"
+                        ? window?.location.search
+                        : null
+                    }`}
+                  >
+                    Profile
+                  </Link>
+                </Disclosure.Button>
 
-export default Navbar;
+                <Disclosure.Button
+                  as="a"
+                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
+                >
+                  {loggedIn ? (
+                    <a onClick={() => logoutHandler()}>Logout</a>
+                  ) : (
+                    <Link
+                      passHref
+                      href={`/Authentication/Login${
+                        typeof window !== "undefined"
+                          ? window?.location.search
+                          : null
+                      }`}
+                    >
+                      Login
+                    </Link>
+                  )}
+                </Disclosure.Button>
+              </div>
+            </div>
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
+  );
+}

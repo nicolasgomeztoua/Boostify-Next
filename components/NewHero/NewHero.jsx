@@ -115,7 +115,7 @@ const NewHero = () => {
             </Link>
             <Link
               passHref
-              href={`/rank-boosting${
+              href={`/Services${
                 typeof window !== "undefined" ? window?.location.search : null
               }`}
             >

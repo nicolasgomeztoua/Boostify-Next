@@ -160,15 +160,15 @@
 }
 
 .cart_icon {
-  height: 50px;
-  color: white;
+  height: 20px;
+  color: turquoise;
   cursor: pointer;
 }
 .cart_icon_number {
   position: relative;
   bottom: 15px;
   right: 5px;
-  color: white;
+  color: turquoise;
   padding: 3px 6px;
   border-radius: 100%;
   font-size: 15px;

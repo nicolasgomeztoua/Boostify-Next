@@ -58,7 +58,7 @@ const FaqNew = () => {
             </Paragraph>
             <div style={{ display: "flex", justifyContent: "center" }}>
               <Link
-                href={`/rank-boosting${
+                href={`/Services${
                   typeof window !== "undefined" ? window?.location.search : null
                 }`}
                 style={{ textDecoration: "none", color: "inherit" }}

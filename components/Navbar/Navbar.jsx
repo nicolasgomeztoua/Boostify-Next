@@ -260,7 +260,7 @@ export default function NavBar() {
             </div>
             <div className="border-t border-gray-200 pt-4 pb-3">
               <a
-                class="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
+                className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
                 data-headlessui-state="open"
               >
                 <Link

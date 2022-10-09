@@ -380,8 +380,8 @@ const RankBoostProduct = () => {
                 <Image
                   src={firstRankImage}
                   alt="rank"
-                  width={236}
-                  height={222}
+                  width={200}
+                  height={190}
                 />
 
                 <Tier id="tier">{firstTier}</Tier>
@@ -412,8 +412,8 @@ const RankBoostProduct = () => {
                 <Image
                   src={secondRankImage}
                   alt="rank"
-                  width={236}
-                  height={222}
+                  width={200}
+                  height={180}
                 />
 
                 <Tier id="tier">{secondTier}</Tier>

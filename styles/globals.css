@@ -17,11 +17,6 @@ a {
 #scales {
   display: none;
 }
-.brandpush-vertical-center {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  transform: translate(13%, -50%) !important;
-}
 
 * {
   box-sizing: border-box;

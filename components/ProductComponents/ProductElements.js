@@ -56,12 +56,13 @@ export const StepOneTitle = styled.h3`
   margin-bottom: 50px;
   text-align: center;
   text-transform: uppercase;
-  @media (max-width: 415px) {
+  @media (orientation: portrait) {
+    flex-direction: column;
     height: auto;
-    margin-top: 100px;
+
     margin-bottom: 50px;
     max-width: 90vw;
-    font-size: 31.23px;
+    font-size: 27.23px;
   }
 `;
 
@@ -76,7 +77,8 @@ export const F0 = styled(CreativeCommonsZero)`
 `;
 
 export const F1 = styled(Filter1)`
-  height: 75px;
+  height: 50px;
+  margin-bottom: 10px;
   color: ${(props) => (props.color ? props.color : "#e43403")};
   margin-right: 15px;
   @media (max-width: 410px) {
@@ -101,7 +103,6 @@ export const StepOneSLidersWrap = styled.div`
   @media (max-width: 810px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    height: 1600px;
   }
 `;
 export const PlacementWrap = styled.div`
@@ -111,7 +112,8 @@ export const PlacementWrap = styled.div`
   height: max-content;
 `;
 export const F2 = styled(Filter2)`
-  height: 75px;
+  height: 50px;
+  margin-bottom: 10px;
   color: ${(props) => (props.color ? props.color : "#e43403")};
   margin-right: 15px;
   @media (max-width: 410px) {
@@ -131,6 +133,7 @@ export const InitialRank = styled.div`
   @media (max-width: 810px) {
     width: 100%;
     margin-bottom: 50px;
+    height: min-content;
     max-width: 80vw;
     justify-self: center;
     margin-right: 0px;
@@ -147,6 +150,7 @@ export const DesiredRankBoost = styled.div`
   @media (max-width: 810px) {
     width: 100%;
     margin-bottom: 50px;
+    height: min-content;
     max-width: 80vw;
     justify-self: center;
     margin-left: 0px;
@@ -225,7 +229,8 @@ export const InputTyped = styled.input.attrs({
   }
 `;
 export const F3 = styled(Filter3)`
-  height: 75px;
+  height: 50px;
+  margin-bottom: 10px;
   color: ${(props) => (props.color ? props.color : "#e43403")};
   margin-right: 15px;
   @media (max-width: 410px) {
@@ -262,6 +267,10 @@ export const StepTwoWarning = styled.span`
 export const ExtrasContainer = styled.div`
   display: grid;
   grid-template-rows: 1fr 1fr;
+  margin: 20px 0px;
+  @media screen and (orientation: portrait) {
+    grid-template-rows: 0.1fr 1fr;
+  }
 `;
 export const ExtrasTitle = styled.h1`
   display: flex;
@@ -290,14 +299,11 @@ export const ExtrasOptions = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: flex-end;
-  height: 320px;
+  margin: 10px;
   @media (max-width: 720px) {
     grid-template-columns: 1fr 1fr;
   }
   @media (max-width: 420px) {
-    transform: scale(0.8);
-
-    width: 95vw;
   }
 `;
 
@@ -504,7 +510,7 @@ export const TotalMoney = styled.div`
   text-align: center;
 `;
 export const Subtitle = styled.h2`
-  font-size: 45.23px;
+  font-size: 31.23px;
   color: #000;
   text-align: center;
   border-bottom: 4px solid #f25a59;

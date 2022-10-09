@@ -11,9 +11,8 @@ import {
   faUsers,
   faBolt,
   faUserSecret,
+  faCircleInfo,
 } from "@fortawesome/free-solid-svg-icons";
-
-
 
 const WhyUs = () => {
   const [our, setOur] = useState("checked");
@@ -82,12 +81,9 @@ const WhyUs = () => {
         <ul>
           <li title="Our Boosters">
             <label htmlFor="tab1" role="button">
-              <FontAwesomeIcon
-                icon={faUsers}
-                style={{ padding: "10px" }}
-              />
+              <FontAwesomeIcon icon={faUsers} style={{ padding: "10px" }} />
               <br />
-              <span>Our Boosters</span>
+              <span style={{ fontSize: "13px" }}>Our Boosters</span>
             </label>
           </li>
           <li title="Privacy">
@@ -109,9 +105,10 @@ const WhyUs = () => {
           </li>
           <li title="Returns">
             <label htmlFor="tab4" role="button">
-              <svg viewBox="0 0 24 24">
-                <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
-              </svg>
+              <FontAwesomeIcon
+                icon={faCircleInfo}
+                style={{ padding: "10px" }}
+              />
               <br />
               <span>Returns</span>
             </label>
@@ -134,8 +131,8 @@ const WhyUs = () => {
               </p>
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <Image
-                  height={300}
-                  width={350}
+                  height={200}
+                  width={250}
                   src={pred}
                   alt="predator"
                 ></Image>
@@ -156,7 +153,7 @@ const WhyUs = () => {
               </p>
               <VpnLock
                 style={{
-                  width: "300px",
+                  width: "200px",
                   color: "turquoise",
                   display: "flex",
                   justifySelf: "center",
@@ -194,8 +191,8 @@ const WhyUs = () => {
                 <Image
                   src={cashback}
                   alt="cash back"
-                  width={300}
-                  height={300}
+                  width={200}
+                  height={200}
                 ></Image>
               </div>
             </div>

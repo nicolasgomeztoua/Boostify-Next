@@ -380,8 +380,8 @@ const RankBoostProduct = () => {
                 <Image
                   src={firstRankImage}
                   alt="rank"
-                  width={336}
-                  height={322}
+                  width={236}
+                  height={222}
                 />
 
                 <Tier id="tier">{firstTier}</Tier>
@@ -398,7 +398,7 @@ const RankBoostProduct = () => {
                   }}
                 ></Slider>
                 <InputTyped
-                  fontSize="80px"
+                  fontSize="50px"
                   height="100px"
                   width="300px"
                   value={firstValue}
@@ -412,8 +412,8 @@ const RankBoostProduct = () => {
                 <Image
                   src={secondRankImage}
                   alt="rank"
-                  width={336}
-                  height={322}
+                  width={236}
+                  height={222}
                 />
 
                 <Tier id="tier">{secondTier}</Tier>
@@ -430,7 +430,7 @@ const RankBoostProduct = () => {
                   }}
                 ></Slider>
                 <InputTyped
-                  fontSize="80px"
+                  fontSize="50px"
                   height="100px"
                   width="300px"
                   value={secondValue}
@@ -453,10 +453,10 @@ const RankBoostProduct = () => {
           </Step2Container>
 
           <ExtrasContainer>
-            <ExtrasTitle>
-              <F2></F2>
-              Choose additional services
-            </ExtrasTitle>
+            <StepOneTitle>
+              <F2></F2> CHOOSE ADDITIONAL SERVICES
+            </StepOneTitle>
+
             <ExtrasOptions>
               <ExtraIconButtonWrap>
                 <IconDescWrapper>
@@ -499,9 +499,9 @@ const RankBoostProduct = () => {
 
           <TotalContainer>
             {" "}
-            <TotalTitle>
+            <StepOneTitle>
               <F3></F3> Check your total
-            </TotalTitle>
+            </StepOneTitle>
             <TotalMoneyCard>
               <TotalMoneyHeader>
                 Your Order: <br></br>{" "}
@@ -521,7 +521,7 @@ const RankBoostProduct = () => {
                   setValidPromo(e.target.value.toLowerCase());
                 }}
               ></InputTyped>
-              <div className="button_cont" >
+              <div className="button_cont">
                 <DiscountButton
                   className="example_c"
                   disabled={disabledDiscount}
@@ -544,7 +544,7 @@ const RankBoostProduct = () => {
                 </span>
               </TotalMoney>
 
-              <div className="button_cont" >
+              <div className="button_cont">
                 <Link
                   href={`/Cart${
                     typeof window !== "undefined"

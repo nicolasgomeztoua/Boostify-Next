@@ -20,7 +20,7 @@ const BadgeBoosting = () => {
       <Navbar />
       <ProdMenu></ProdMenu>
       <AcheivementBoostProduct />
-      <Footer footerColor="#e43403" />
+      <Footer footerColor="#40e0d0 " />
     </>
   );
 };

@@ -558,8 +558,7 @@ export const CheckLabel = styled.label`
   width: 35px;
   height: 35px;
 
-  margin: auto;
-  margin-top: 10px;
+  margin: 10px auto;
   .inputCheck {
     display: none;
   }

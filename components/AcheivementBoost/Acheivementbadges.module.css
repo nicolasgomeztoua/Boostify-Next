@@ -1,9 +1,6 @@
 .check {
-  width: 35px;
-  height: 35px;
-
+  border: 1px solid black;
   margin: auto;
-  margin-top: 10px;
 }
 .check .inputCheck {
   display: none;
@@ -13,6 +10,7 @@
 }
 .check .inputCheck:checked + .box:after {
   top: 0;
+  box-sizing: unset !important;
 }
 .check .box {
   width: 100%;
@@ -44,4 +42,11 @@
 }
 #scales {
   display: none;
+}
+
+@media screen and (orientation: portrait) {
+  .newGrid {
+    max-height: 80vh;
+    overflow-y: scroll;
+  }
 }

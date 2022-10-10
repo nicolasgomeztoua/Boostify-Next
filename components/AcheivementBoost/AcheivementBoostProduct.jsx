@@ -27,25 +27,27 @@ import TwentyBomb from "../../public/assets/images/20Bomb.png";
 import styled from "styled-components";
 import Image from "next/image";
 import styles from "./Acheivementbadges.module.css";
+import NewGrid from "./NewGrid";
+import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
 const BadgesTitle = styled.h2`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  width: 50%;
   color: #111;
   font-family: "Open Sans Condensed", sans-serif;
-  font-size: 45.23px;
+  font-size: 35.23px;
   font-weight: 700;
-  line-height: 48px;
   padding: 0.5rem;
   margin: 3rem;
   text-align: center;
   text-transform: uppercase;
-  border-bottom: solid 4px #e43403;
+  border-bottom: solid 4px turquoise;
   border-radius: 100px;
-  @media (max-width: 430px) {
+  @media (orientation: portrait) {
     border-radius: 20px;
+    width: 90%;
   }
 `;
 const BadgesContainer = styled.div`
@@ -54,32 +56,33 @@ const BadgesContainer = styled.div`
   margin-bottom: 50px;
   justify-content: center;
   width: 80vw;
-  border: 4px solid #e43403;
+  border: 4px solid turquoise;
   border-radius: 50px;
-  background-color: #252525;
-  height: 2500px;
-  @media (max-width: 420px) {
-    width: 100vw;
+  height: min-content;
+  @media (orientation: portrait) {
+    width: 90%;
   }
 `;
 const BadgesWrap = styled.div`
   display: grid;
-  grid-template-rows: 0.1fr 0.5fr 0.1fr 0.1fr 1fr 0.1fr 0.1fr 1fr;
   overflow: auto;
+  @media screen and (orientation: portrait) {
+    grid-template-rows: none;
+  }
 `;
 const BadgesSectionTitle = styled.h3`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 50px;
-
+  margin: 50px auto;
+  height: min-content;
   font-family: "Open Sans Condensed", sans-serif;
   font-size: 31.99px;
   font-weight: 700;
   line-height: 48px;
-  color: white;
-  border-bottom: solid 4px #e43403;
-  border-top: solid 4px #e43403;
+  color: black;
+  border-bottom: solid 4px turquoise;
+  border-top: solid 4px turquoise;
   border-radius: 10px;
   text-align: center;
   text-transform: uppercase;
@@ -150,7 +153,7 @@ const InputTyped = styled.input.attrs({
   margin: 10px auto;
   color: black;
   height: ${(props) => props.height};
-  border: 4px solid #e43403;
+  border: 4px solid turquoise;
   border-radius: 50px;
   padding-left: 30px;
   margin-top: 30px;
@@ -335,6 +338,7 @@ const StepTwoWarning = styled.span`
     color: black;
   }
 `;
+
 const AcheivementBoostProduct = () => {
   const [checkedPopBadges, setPopBadges] = useState("");
   const [checkedExtraBadges, setExtraBadges] = useState("");
@@ -494,98 +498,80 @@ const AcheivementBoostProduct = () => {
   }, [checkedLegend]);
   return (
     <>
-      <BadgesTitle>Select Your Badges</BadgesTitle>
+      <div className="w-100 flex justify-center">
+        <BadgesTitle>Select Your Badges</BadgesTitle>
+      </div>
       <input type="checkbox" id="scales" name="scales"></input>
       <BadgesContainer>
         <BadgesWrap>
           <BadgesSectionTitle>Popular choices</BadgesSectionTitle>
-
-          <BadgesSelectionContainers height="330px">
-            {PopularBadgesObj.map((Items, index) => {
-              return (
-                <TextIconCheckBox key={Items.name + index.toString()}>
-                  <div
-                    style={{
-                      marginRight: "auto",
-                      marginLeft: "auto",
-                      height: "200px",
-                      width: "200px",
-                    }}
-                  >
-                    <Image
-                      width={200}
-                      height={200}
-                      src={Items.icon}
-                      alt="badge"
-                    ></Image>
-                  </div>
-                  <BadgeDesc>{Items.name}</BadgeDesc>
-                  <BadgeDesc>{Items.price}$</BadgeDesc>
-                  <CheckLabel className={styles["check"]} key={Items.key}>
-                    <input
-                      type="checkbox"
-                      className={styles["inputCheck"]}
-                      name={Items.name}
-                      checked={checkedPopBadges[Items.name]}
-                      onChange={handleChangePop}
-                    />
-
-                    <div className={styles["box"]}></div>
-                  </CheckLabel>
-                </TextIconCheckBox>
-              );
-            })}
-          </BadgesSelectionContainers>
+          <NewGrid
+            array={PopularBadgesObj}
+            checkedBadges={checkedPopBadges}
+            handleChange={handleChangePop}
+          />
           <BadgesSectionTitle>More Badges</BadgesSectionTitle>
-          <Searchbar
-            onChange={(e) => setSearchField(e.target.value)}
-          ></Searchbar>
-          <BadgesSelectionContainers>
-            {extraBadgesObj
-              .filter((items) => {
-                return items.name
-                  .toLowerCase()
-                  .includes(searchField.toLowerCase());
-              })
-              .map((Items, index) => {
-                return (
-                  <TextIconCheckBox key={Items.name + index.toString()}>
-                    <div
-                      style={{
-                        marginRight: "auto",
-                        marginLeft: "auto",
-                        height: "200px",
-                        width: "200px",
-                      }}
-                    >
-                      <Image
-                        width={200}
-                        height={200}
-                        src={Items.icon}
-                        alt="badge"
-                      ></Image>
-                    </div>
-                    <BadgeDesc>{Items.name}</BadgeDesc>
-                    <BadgeDesc>{Items.price}$</BadgeDesc>
-                    <CheckLabel className={styles["check"]} key={Items.key}>
-                      <input
-                        type="checkbox"
-                        className={styles["inputCheck"]}
-                        name={Items.name}
-                        checked={checkedExtraBadges[Items.name]}
-                        onChange={handleChangeExtra}
-                      />
+          <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 s">
+            <div className="w-full max-w-lg lg:max-w-xs">
+              <label htmlFor="search" className="sr-only">
+                Search
+              </label>
+              <div className="relative">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                  <MagnifyingGlassIcon
+                    className="h-5 w-5 text-gray-400"
+                    aria-hidden="true"
+                  />
+                </div>
+                <input
+                  onChange={(e) => setSearchField(e.target.value.toLowerCase())}
+                  id="search"
+                  name="search"
+                  className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Search"
+                  type="search"
+                />
+              </div>
+            </div>
+          </div>
 
-                      <div className={styles["box"]}></div>
-                    </CheckLabel>
-                  </TextIconCheckBox>
-                );
-              })}
-          </BadgesSelectionContainers>
+          <NewGrid
+            array={extraBadgesObj.filter((items) => {
+              return items.name
+                .toLowerCase()
+                .includes(searchField.toLowerCase());
+            })}
+            checkedBadges={checkedExtraBadges}
+            handleChange={handleChangePop}
+          />
+
           <BadgesSectionTitle>Legends</BadgesSectionTitle>
-          <Searchbar
-            onChange={(e) => setSearchFieldLegends(e.target.value)}
-          ></Searchbar>
+
+          <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 s">
+            <div className="w-full max-w-lg lg:max-w-xs">
+              <label htmlFor="search" className="sr-only">
+                Search
+              </label>
+              <div className="relative">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                  <MagnifyingGlassIcon
+                    className="h-5 w-5 text-gray-400"
+                    aria-hidden="true"
+                  />
+                </div>
+                <input
+                  onChange={(e) =>
+                    setSearchFieldLegends(e.target.value.toLowerCase())
+                  }
+                  id="search"
+                  name="search"
+                  className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Search"
+                  type="search"
+                />
+              </div>
+            </div>
+          </div>
           <BadgesSelectionContainers>
             {ReversedObj.filter((items) => {
               return items.name
@@ -638,7 +624,9 @@ const AcheivementBoostProduct = () => {
         </BadgesWrap>
       </BadgesContainer>
       <ExtrasContainer style={{ gridTemplateRows: "1fr" }}>
-        <ExtrasTitle>Choose additional services</ExtrasTitle>
+        <ExtrasTitle style={{ maxWidth: "100%" }}>
+          Choose additional services
+        </ExtrasTitle>
         <ExtrasOptions>
           <ExtraIconButtonWrap>
             <IconDescWrapper>

@@ -64,7 +64,7 @@ export default function MainServices() {
                 y={0}
                 width={4}
                 height={4}
-                className="text-gray-200"
+                style={{ color: "turquoise" }}
                 fill="currentColor"
               />
             </pattern>
@@ -160,7 +160,7 @@ export default function MainServices() {
                     y={0}
                     width={4}
                     height={4}
-                    className="text-gray-200"
+                    style={{ color: "turquoise" }}
                     fill="currentColor"
                   />
                 </pattern>
@@ -203,7 +203,7 @@ export default function MainServices() {
                 y={0}
                 width={4}
                 height={4}
-                className="text-gray-200"
+                style={{ color: "turquoise" }}
                 fill="currentColor"
               />
             </pattern>
@@ -288,7 +288,7 @@ export default function MainServices() {
                       y={0}
                       width={4}
                       height={4}
-                      className="text-gray-200"
+                      style={{ color: "turquoise" }}
                       fill="currentColor"
                     />
                   </pattern>

@@ -141,10 +141,7 @@ const BadgeDesc = styled.p`
   font-size: 22.62px;
   font-weight: 100;
   line-height: 28px;
-  color: white;
-  text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black,
-    -0.07em -0.07em black, -0.07em 0.07em black, 0.07em -0.07em black,
-    0.07em 0.07em black;
+  color: black;
 `;
 const InputTyped = styled.input.attrs({
   maxLength: "10",

@@ -196,7 +196,7 @@ export default function MainServices() {
           />
         </svg>
 
-        <div className="relative mt-16 sm:mt-16 lg:mt-24">
+        <div className="relative mt-48 lg:mt-24">
           <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:items-center lg:gap-8">
             <div className="lg:col-start-2">
               <h3 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">

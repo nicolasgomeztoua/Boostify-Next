@@ -71,6 +71,7 @@ export const PopularBadgesObj = [
     icon: MasterOfAll,
     key: "MasterOfAllKey",
     price: 300 / 2,
+    completionTime: 48,
   },
 ];
 export const extraBadgesObj = [

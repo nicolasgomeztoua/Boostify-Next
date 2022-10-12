@@ -29,6 +29,7 @@ import Image from "next/image";
 import styles from "./Acheivementbadges.module.css";
 import NewGrid from "./NewGrid";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import { calcCompletion } from "../../utils/calcCompletion";
 
 const BadgesTitle = styled.h2`
   display: flex;
@@ -356,6 +357,9 @@ const AcheivementBoostProduct = () => {
   const [filteredExtras, setFilteredExtras] = useState("");
   const [disabledButtonText, setDisabledButton] = useState("");
   const [disabledState, setDisabledState] = useState("");
+  const [popCompletion, setPopCompletion] = useState("");
+  const [extraCompletion, setExtraCompletion] = useState("");
+
   let ReversedObj = [...LegendsObj].reverse();
   const dispatch = useDispatchCart();
   const addToCart = (item) => {
@@ -399,22 +403,35 @@ const AcheivementBoostProduct = () => {
     return checkedExtraBadges[x] !== false;
   });
   useEffect(() => {
+    setPopCompletion(0);
     let totalPop = 0;
-
+    let totalTime = 0;
     for (let i = 0; i < PopularBadgesObj.length; i++) {
       if (checkedPopBadges[PopularBadgesObj[i].name] === true) {
+        PopularBadgesObj[i].completionTime
+          ? (totalTime = PopularBadgesObj[i].completionTime + totalTime)
+          : (totalTime = 3 + totalTime);
+
         totalPop = PopularBadgesObj[i].price + totalPop;
         setTotalPopBadges(totalPop);
+        setPopCompletion(totalTime);
       }
     }
   }, [checkedPopBadges, checkedExtraBadges]);
 
   useEffect(() => {
+    setExtraCompletion(0);
     let totalExtra = 0;
+    let totalTime = 0;
     for (let i = 0; i < extraBadgesObj.length; i++) {
       if (checkedExtraBadges[extraBadgesObj[i].name] === true) {
+        extraBadgesObj[i].completionTime
+          ? (totalTime = extraBadgesObj[i].completionTime + totalTime)
+          : (totalTime = 3 + totalTime);
+
         totalExtra = extraBadgesObj[i].price + totalExtra;
         setTotalExtraBadges(totalExtra);
+        setExtraCompletion(totalTime);
       }
     }
   }, [checkedExtraBadges, checkedPopBadges]);
@@ -539,7 +556,7 @@ const AcheivementBoostProduct = () => {
                 .includes(searchField.toLowerCase());
             })}
             checkedBadges={checkedExtraBadges}
-            handleChange={handleChangePop}
+            handleChange={handleChangeExtra}
           />
 
           <BadgesSectionTitle>Legends</BadgesSectionTitle>
@@ -693,6 +710,9 @@ const AcheivementBoostProduct = () => {
             </span>
             Selected Legend: <br></br>
             <span>{Object.keys(checkedLegend)}</span>
+            <br />
+            Completion time: <br></br>
+            <span>{popCompletion + extraCompletion} Hours</span>
           </TotalMoneyHeader>
           <DiscountContainer>PromoCode</DiscountContainer>
           <InputTyped

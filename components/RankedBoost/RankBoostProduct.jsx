@@ -50,6 +50,7 @@ import {
   ExtraDesc,
   Tier,
 } from "../ProductComponents/ProductElements";
+import { calcCompletion } from "../../utils/calcCompletion";
 
 const RankBoostProduct = () => {
   const [firstTier, setFirstTier] = useState("I");
@@ -134,14 +135,14 @@ const RankBoostProduct = () => {
   }, [secondValue, firstValue]);
 
   useEffect(() => {
-    if (firstValue > 19900) {
-      setFirstValue(19900);
+    if (firstValue > 39900) {
+      setFirstValue(39900);
     }
   }, [firstValue]);
 
   useEffect(() => {
-    if (secondValue > 20000) {
-      setSecondValue(20000);
+    if (secondValue > 40000) {
+      setSecondValue(40000);
     }
   }, [secondValue]);
 
@@ -331,15 +332,6 @@ const RankBoostProduct = () => {
     }
   }, [secondValue]);
 
-  useEffect(() => {
-    if (firstValue) {
-      setCompletionTime("48 hours");
-    }
-    if (secondValue > 11000) {
-      setCompletionTime("15 days");
-    }
-  }, [firstValue, secondValue]);
-
   const dispatch = useDispatchCart();
   const addToCart = (item) => {
     dispatch({ type: "ADD", item });
@@ -389,12 +381,12 @@ const RankBoostProduct = () => {
                   value={firstValue}
                   onChange={(e) => setFirstValue(e.target.value)}
                   step="25"
-                  max="19900"
+                  max="39900"
                   divider="200"
                   style={{
                     background: `linear-gradient(to right, #e43403 0%, #e43403 ${
-                      firstValue / 200
-                    }%, #fff ${firstValue / 200}%, #fff 100%)`,
+                      firstValue / 400
+                    }%, #fff ${firstValue / 400}%, #fff 100%)`,
                   }}
                 ></Slider>
                 <InputTyped
@@ -421,12 +413,12 @@ const RankBoostProduct = () => {
                   value={secondValue}
                   onChange={(e) => setSecondValue(e.target.value)}
                   step="25"
-                  max="20000"
+                  max="40000"
                   divider="200"
                   style={{
                     background: `linear-gradient(to right, #e43403 0%, #e43403 ${
-                      secondValue / 200
-                    }%, #fff ${secondValue / 200}%, #fff 100%)`,
+                      secondValue / 400
+                    }%, #fff ${secondValue / 400}%, #fff 100%)`,
                   }}
                 ></Slider>
                 <InputTyped
@@ -509,7 +501,9 @@ const RankBoostProduct = () => {
                   {firstValue}RP to {secondValue}RP
                 </span>
                 <br></br> Average Completion Time: <br></br>
-                <span>{completionTime}</span>
+                <span>
+                  {calcCompletion("RankBoost", firstValue, secondValue)}
+                </span>
               </TotalMoneyHeader>
               <DiscountContainer>PromoCode</DiscountContainer>
               <InputTyped

@@ -14,11 +14,10 @@ export default function NewGrid({ array, checkedBadges, handleChange }) {
             key={Items.email}
             className="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow"
           >
-            <div className="flex flex-1 flex-col p-8">
+            <div className="flex flex-1 flex-col p-8 mx-auto h-150 w-160 flex-shrink-0 rounded-full">
               <Image
-                width={266}
-                height={266}
-                className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
+                width={170}
+                height={170}
                 src={Items.icon.src}
                 alt="badge"
               />
@@ -29,9 +28,11 @@ export default function NewGrid({ array, checkedBadges, handleChange }) {
               <dl className="mt-1 flex flex-grow flex-col justify-between">
                 <dt className="sr-only">Price</dt>
                 <dd className="mt-3">
-                  <span className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800">
-                    {Items.price}$
-                  </span>
+                  {Items.price ? (
+                    <span className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800">
+                      {Items.price}$
+                    </span>
+                  ) : null}
                 </dd>
               </dl>
             </div>

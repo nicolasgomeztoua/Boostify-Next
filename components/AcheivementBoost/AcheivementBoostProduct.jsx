@@ -586,55 +586,16 @@ const AcheivementBoostProduct = () => {
               </div>
             </div>
           </div>
-          <BadgesSelectionContainers>
-            {ReversedObj.filter((items) => {
+
+          <NewGrid
+            array={ReversedObj.filter((items) => {
               return items.name
                 .toLowerCase()
                 .includes(searchFieldLegends.toLowerCase());
-            }).map((Items, index) => {
-              return (
-                <TextIconCheckBox
-                  backgroundColor="white"
-                  key={Items.name + index.toString()}
-                >
-                  <div
-                    style={{
-                      marginRight: "auto",
-                      marginLeft: "auto",
-                      height: "210px",
-                      width: "210px",
-                    }}
-                  >
-                    <Image
-                      width={200}
-                      height={200}
-                      src={Items.icon}
-                      alt="badge"
-                    ></Image>
-                  </div>
-                  <BadgeDesc>{Items.name}</BadgeDesc>
-                  <CheckLabel
-                    className={styles["check"]}
-                    key={Items.key}
-                    style={{ backgroundColor: "black" }}
-                  >
-                    <input
-                      type="checkbox"
-                      className={styles["inputCheck"]}
-                      name={Items.name}
-                      checked={checkedLegend[Items.name]}
-                      onChange={handleChangeLegends}
-                    />
-
-                    <div
-                      className={styles["box"]}
-                      style={{ backgroundColor: "black" }}
-                    ></div>
-                  </CheckLabel>
-                </TextIconCheckBox>
-              );
             })}
-          </BadgesSelectionContainers>
+            checkedBadges={checkedLegend}
+            handleChange={handleChangeLegends}
+          />
         </BadgesWrap>
       </BadgesContainer>
       <ExtrasContainer style={{ gridTemplateRows: "1fr" }}>

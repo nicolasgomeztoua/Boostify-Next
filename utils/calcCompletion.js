@@ -57,11 +57,6 @@ const calcRankBoostTime = (firstValue, secondValue) => {
   return summedTime;
 };
 
-const calcBadgesTime = (popBadges, otherBadges) => {
-  console.log(popBadges, otherBadges);
-  let totalHours = 0;
-};
-
 function SplitTime(numberOfHours) {
   const Days = Math.floor(numberOfHours / 24);
   const Remainder = numberOfHours % 24;
@@ -78,8 +73,6 @@ export const calcCompletion = (boostType, firstValue = 0, secondValue = 0) => {
   switch (boostType) {
     case "RankBoost":
       return SplitTime(calcRankBoostTime(firstValue, secondValue));
-    case "Badges":
-      return calcBadgesTime(firstValue, secondValue);
     case "ArenasBoost":
       return " < 24h";
     case "KillsBoost":

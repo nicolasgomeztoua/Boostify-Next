@@ -53,18 +53,21 @@ export const PopularBadgesObj = [
     icon: TwentyBomb,
     key: "TwentyBombKey",
     price: 25,
+    completionTime: 3,
   },
   {
     name: "4k Dmg",
     icon: FourKDmg,
     key: "FourKDmgKey",
     price: 25,
+    completionTime: 3,
   },
   {
     name: "10 / 10 / 10",
     icon: TenTenTen,
     key: "TenTenTenKey",
     price: 225 / 2,
+    completionTime: 12
   },
   {
     name: "Master Of All",
@@ -80,120 +83,140 @@ export const extraBadgesObj = [
     icon: Twokdmg,
     key: "twokdmgkey",
     price: 20 / 2,
+    completionTime: 1
   },
   {
     name: "2.5k dmg",
     icon: Twohalfkdmg,
     key: "twohalfkdmgKey",
     price: 35 / 2,
+    completionTime: 1
   },
   {
     name: "3k dmg",
     icon: Threekdmg,
     key: "threekdmgKey",
     price: 50 / 2,
+    completionTime: 1
   },
   {
     name: "Long-Shot",
     icon: Longshot,
     key: "LongShotKey",
     price: 30 / 2,
+    completionTime: 2
   },
   {
     name: "Squad Wipe",
     icon: SquadWipe,
     key: "SquadWipeKey",
     price: 20 / 2,
+    completionTime: 1
   },
   {
     name: "Rapid Elimination",
     icon: RapidElimination,
     key: "RapidEliminationKey",
     price: 45 / 2,
+    completionTime: 1
   },
   {
     name: "Assasin I",
     icon: AsassinI,
     key: "AsassinIKey",
     price: 20 / 2,
+    completionTime: 3
   },
   {
     name: "Assasin II",
     icon: AsassinII,
     key: "AsassinIIKey",
     price: 40 / 2,
+    completionTime: 8
   },
   {
     name: "Assasin III",
     icon: AsassinIII,
     key: "AsassinIIIKey",
     price: 120 / 2,
+    completionTime: 24
   },
   {
     name: "Assasin IV",
     icon: AsassinIV,
     key: "AsassinIVKey",
     price: 360 / 2,
+    completionTime: 48
   },
   {
     name: "Apex Predator",
     icon: apexpred,
     key: "ApexPredKey",
     price: 25 / 2,
+    completionTime: 1
   },
   {
     name: "Dead Eye",
     icon: deadeye,
     key: "DeadEyeKey",
     price: 20 / 2,
+    completionTime: 2
   },
   {
     name: "Double Duty",
     icon: doubleduty,
     key: "DoubleDutyKey",
     price: 50 / 2,
+    completionTime: 1
   },
   {
     name: "Flawless Victory I",
     icon: flawlessvictory,
     key: "flawlessvictoryKey",
     price: 30 / 2,
+    completionTime: 1
   },
   {
     name: "Flawless Victory II",
     icon: flawlessvictoryII,
     key: "flawlessvictoryIIKey",
     price: 50 / 2,
+    completionTime: 2
   },
   {
     name: "Head-Shot Hot-Shot",
     icon: headshothotshot,
     key: "headshothotshotKey",
     price: 60 / 2,
+    completionTime: 2
   },
   {
     name: "Hot Streak",
     icon: hotstreak,
     key: "hotstreakKey",
     price: 30 / 2,
+    completionTime: 2
   },
   {
     name: "No One Left Behind",
     icon: nooneleftbehind,
     key: "nooneleftbehindKey",
     price: 10 / 2,
+    completionTime: 1
   },
   {
     name: "Reinforcement Recall",
     icon: reinforcementrecall,
     key: "reinforcementrecallKey",
     price: 15 / 2,
+    completionTime: 2
   },
   {
     name: "Shot Caller",
     icon: shotcaller,
     key: "shotcallerKey",
     price: 20 / 2,
+    completionTime: 1
   },
 
   {
@@ -201,18 +224,21 @@ export const extraBadgesObj = [
     icon: legacycontinues,
     key: "legacycontuesKey",
     price: 25 / 2,
+    completionTime: 2
   },
   {
     name: "Triple Triple",
     icon: tripletriple,
     key: "tripletripleKey",
     price: 75 / 2,
+    completionTime: 2
   },
   {
     name: "WellRounded",
     icon: wellrounded,
     key: "tripletripleKey",
     price: 200 / 2,
+    completionTime: 6
   },
 ];
 
